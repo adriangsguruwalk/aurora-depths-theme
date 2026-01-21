@@ -1,0 +1,82 @@
+# Aurora Depths Theme for Ghostty
+# A Poimandres x Nord inspired theme following Material Design 3 principles
+# and WCAG AA accessibility standards (4.5:1 contrast minimum for text)
+
+# Background colors (depth hierarchy)
+background = #1a1d26
+# Foreground (primary text - 13:1 contrast ratio)
+foreground = #e5eaf2
+
+# Cursor
+cursor-color = #e5eaf2
+cursor-text = #1a1d26
+
+# Selection (elevated surface with good visibility)
+selection-background = #3a3f4f
+selection-foreground = #e5eaf2
+
+# Split/border colors
+unfocused-split-opacity = 0.9
+split-color = #4a5163
+
+# Window appearance
+window-padding-x = 12
+window-padding-y = 8
+window-padding-balance = true
+
+# ANSI Colors (0-15)
+# Following semantic color assignments:
+# - Black/bright black: Background variations
+# - Red: Errors, deletions
+# - Green: Success, additions
+# - Yellow: Warnings, classes
+# - Blue: Keywords, links
+# - Magenta: Special, regex
+# - Cyan: Strings, constants
+# - White: Foreground variations
+
+# Normal colors (0-7)
+# Black - darker background
+palette = 0=#252936
+# Red - errors
+palette = 1=#c76b75
+# Green - success
+palette = 2=#9dc08b
+# Yellow - warnings
+palette = 3=#e6c783
+# Blue - keywords
+palette = 4=#8fc6d9
+# Magenta - special
+palette = 5=#c78db0
+# Cyan - strings
+palette = 6=#7fccbf
+# White - secondary text
+palette = 7=#b8c5d4
+
+# Bright colors (8-15)
+# Bright black - elevated surface
+palette = 8=#3a3f4f
+# Bright red
+palette = 9=#d4858d
+# Bright green
+palette = 10=#b3d0a3
+# Bright yellow
+palette = 11=#f0d99b
+# Bright blue
+palette = 12=#a5d4e8
+# Bright magenta
+palette = 13=#d9a5c4
+# Bright cyan
+palette = 14=#9adbd0
+# Bright white - primary text
+palette = 15=#e5eaf2
+
+# Font configuration (example - adjust to your preference)
+# font-family = "JetBrains Mono"
+# font-size = 14
+# font-feature = calt
+# font-feature = liga
+
+# Additional visual settings for eye comfort
+# adjust-cell-height = 20%
+# minimum-contrast = 1.1

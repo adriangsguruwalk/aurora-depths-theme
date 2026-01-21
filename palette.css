@@ -1,0 +1,101 @@
+/**
+ * Aurora Depths - CSS Color Variables
+ * A Poimandres x Nord inspired palette following Material Design 3 principles
+ *
+ * Usage: Import this file and use CSS variables like var(--ad-bg0)
+ */
+
+:root {
+  /* === Background Hierarchy (Depth Layers) === */
+  --ad-bg0: #1a1d26;      /* Deepest background - use for main surfaces */
+  --ad-bg1: #252936;      /* Elevated surfaces - cards, popups */
+  --ad-bg2: #2e3340;      /* Panels, sidebars, secondary surfaces */
+  --ad-bg3: #3a3f4f;      /* Selections, highlights, active states */
+  --ad-bg4: #4a5163;      /* Borders, separators, dividers */
+
+  /* === Foreground Hierarchy === */
+  --ad-fg0: #e5eaf2;      /* Primary text - 13:1 contrast on bg0 */
+  --ad-fg1: #b8c5d4;      /* Secondary text, comments - 8:1 contrast */
+  --ad-fg2: #8a95a6;      /* Muted text, placeholders - 5:1 contrast */
+  --ad-fg3: #6a7586;      /* Disabled, hints - 3.5:1 contrast */
+
+  /* === Accent Colors (All maintain 4.5:1+ contrast on bg0) === */
+  --ad-blue: #8fc6d9;     /* Keywords, operators, links */
+  --ad-cyan: #7fccbf;     /* Strings, literals */
+  --ad-teal: #5fb3a1;     /* Functions, methods, primary accent */
+  --ad-green: #9dc08b;    /* Success, additions, positive states */
+  --ad-yellow: #e6c783;   /* Warnings, classes, cautions */
+  --ad-orange: #d4927a;   /* Numbers, constants */
+  --ad-pink: #c78db0;     /* Special keywords, regex */
+  --ad-red: #c76b75;      /* Errors, deletions, negative states */
+  --ad-purple: #a699c9;   /* Variables, parameters, accents */
+
+  /* === Semantic Colors === */
+  --ad-error: var(--ad-red);
+  --ad-warning: var(--ad-yellow);
+  --ad-success: var(--ad-green);
+  --ad-info: var(--ad-blue);
+  --ad-link: var(--ad-blue);
+  --ad-primary: var(--ad-teal);
+
+  /* === Surfaces with transparency === */
+  --ad-surface-elevated: rgba(37, 41, 54, 0.95);
+  --ad-surface-overlay: rgba(26, 29, 38, 0.85);
+  --ad-surface-scrim: rgba(26, 29, 38, 0.6);
+
+  /* === Diff colors with subtle backgrounds === */
+  --ad-diff-add-bg: #2a3325;
+  --ad-diff-change-bg: #3a3525;
+  --ad-diff-delete-bg: #352530;
+  --ad-diff-add-fg: var(--ad-green);
+  --ad-diff-change-fg: var(--ad-yellow);
+  --ad-diff-delete-fg: var(--ad-red);
+
+  /* === Diagnostic backgrounds === */
+  --ad-diagnostic-error-bg: #352530;
+  --ad-diagnostic-warn-bg: #3a3525;
+  --ad-diagnostic-info-bg: #253545;
+  --ad-diagnostic-hint-bg: #253530;
+  --ad-diagnostic-success-bg: #2a3325;
+
+  /* === Bright variants (for terminal) === */
+  --ad-bright-black: #3a3f4f;
+  --ad-bright-red: #d4858d;
+  --ad-bright-green: #b3d0a3;
+  --ad-bright-yellow: #f0d99b;
+  --ad-bright-blue: #a5d4e8;
+  --ad-bright-magenta: #d9a5c4;
+  --ad-bright-cyan: #9adbd0;
+  --ad-bright-white: var(--ad-fg0);
+}
+
+/* === Dark theme color-scheme === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* === Utility classes for backgrounds === */
+.ad-bg-0 { background-color: var(--ad-bg0); }
+.ad-bg-1 { background-color: var(--ad-bg1); }
+.ad-bg-2 { background-color: var(--ad-bg2); }
+.ad-bg-3 { background-color: var(--ad-bg3); }
+.ad-bg-4 { background-color: var(--ad-bg4); }
+
+/* === Utility classes for text === */
+.ad-text-primary { color: var(--ad-fg0); }
+.ad-text-secondary { color: var(--ad-fg1); }
+.ad-text-muted { color: var(--ad-fg2); }
+.ad-text-disabled { color: var(--ad-fg3); }
+
+/* === Utility classes for accents === */
+.ad-text-blue { color: var(--ad-blue); }
+.ad-text-cyan { color: var(--ad-cyan); }
+.ad-text-teal { color: var(--ad-teal); }
+.ad-text-green { color: var(--ad-green); }
+.ad-text-yellow { color: var(--ad-yellow); }
+.ad-text-orange { color: var(--ad-orange); }
+.ad-text-pink { color: var(--ad-pink); }
+.ad-text-red { color: var(--ad-red); }
+.ad-text-purple { color: var(--ad-purple); }
