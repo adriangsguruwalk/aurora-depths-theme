@@ -1,200 +1,605 @@
-# ──────────────────────────────────────────────────────────────────────────────
-# Aurora Depths Theme for Starship Prompt - 2026 Edition
-# Digital Hygge meets modern pastels with vibrant teal
-# ──────────────────────────────────────────────────────────────────────────────
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║  Aurora Depths - Purple Edition - Starship Prompt                            ║
+# ║  "Sophisticated purple-first palette with WCAG AA compliance"                ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Palette definition
+# ──────────────────────────────────────────────────────────────────────────────
+# Palette - Aurora Depths Purple Edition
+# ──────────────────────────────────────────────────────────────────────────────
+
 palette = "aurora_depths"
 
 [palettes.aurora_depths]
-# Background hierarchy
-bg0 = "#1a1d26"
-bg1 = "#252936"
-bg2 = "#2e3340"
-bg3 = "#3a3f4f"
-bg4 = "#4a5163"
+# Backgrounds (purple-tinted)
+bg0 = "#1a1825"
+bg1 = "#242030"
+bg2 = "#2e293c"
+bg3 = "#3a3550"
+bg4 = "#4a4565"
 
-# Foreground hierarchy
-fg0 = "#e5eaf2"
-fg1 = "#b8c5d4"
-fg2 = "#8a95a6"
-fg3 = "#6a7586"
+# Foregrounds
+fg0 = "#e8e6f0"
+fg1 = "#c4c0d4"
+fg2 = "#908ca4"
+fg3 = "#686480"
 
-# Accent colors - 2026 Edition
-blue = "#91c4d8"       # Soft Sky - keywords
-teal = "#7dd3c4"       # Vibrant Teal - functions, primary
-mauve = "#d4a5c9"      # Mauve - types (2026 trend)
-sage = "#a3c9a8"       # Sage - strings
-mint = "#8fcf9a"       # Mint - success
-yellow = "#e6c783"     # Yellow - warnings
-peach = "#e0a88c"      # Peach - numbers
-rose = "#c9a0b8"       # Rose - imports
-coral = "#d4878f"      # Coral - errors
-lavender = "#b4a7d6"   # Lavender - variables
+# Primary Purple Family
+purple = "#c4b5f0"    # Functions, primary accent
+violet = "#a78bfa"    # Decorators, properties
 
-# Legacy aliases
-cyan = "#a3c9a8"
-green = "#8fcf9a"
-orange = "#e0a88c"
-pink = "#c9a0b8"
-red = "#d4878f"
-purple = "#b4a7d6"
+# Pink/Magenta Family - Keywords
+pink = "#f0a0c8"      # Keywords, operators
+magenta = "#e879a8"   # Control flow
+
+# Complementary - Types
+cyan = "#7dd3d0"      # Types, classes
+teal = "#5ccfb8"      # Type parameters
+
+# Supporting Accents
+sage = "#a8d4a8"      # Strings
+mint = "#8ce0a0"      # Success, booleans
+yellow = "#e8d088"    # Warnings
+peach = "#e8a888"     # Numbers, constants
+coral = "#e88090"     # Errors
+sky = "#88c4f0"       # Variables
+rose = "#e0a8c0"      # Imports
 
 # ──────────────────────────────────────────────────────────────────────────────
-# Prompt format
+# Prompt Architecture
 # ──────────────────────────────────────────────────────────────────────────────
+
 format = """
 $username\
 $hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
 $directory\
+$vcsh\
+$fossil_branch\
+$fossil_metrics\
 $git_branch\
+$git_commit\
 $git_state\
+$git_metrics\
 $git_status\
-$cmd_duration\
-$line_break\
-$python\
-$nodejs\
-$rust\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$gleam\
 $golang\
+$gradle\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$quarto\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$typst\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$guix_shell\
+$nix_shell\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$nats\
+$direnv\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$fill\
+$time\
+$line_break\
+$jobs\
+$battery\
+$status\
+$os\
+$container\
+$shell\
 $character"""
 
-# ──────────────────────────────────────────────────────────────────────────────
-# Core modules
-# ──────────────────────────────────────────────────────────────────────────────
+# Right prompt for additional context
+right_format = ""
 
-[directory]
-style = "blue"
-truncation_length = 3
-truncate_to_repo = true
-format = "[$path]($style)[$read_only]($read_only_style) "
-read_only = " 󰌾"
-read_only_style = "coral"
+# Continuation prompt
+continuation_prompt = "[  ](fg3)  "
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Core Identity
+# ──────────────────────────────────────────────────────────────────────────────
 
 [character]
-success_symbol = "[❯](teal)"
-error_symbol = "[❯](coral)"
-vimcmd_symbol = "[❮](mint)"
+success_symbol = "[❯](bold purple)"
+error_symbol = "[❯](bold coral)"
+vimcmd_symbol = "[❮](bold pink)"
+vimcmd_replace_one_symbol = "[❮](bold magenta)"
+vimcmd_replace_symbol = "[❮](bold magenta)"
+vimcmd_visual_symbol = "[❮](bold violet)"
+
+[directory]
+format = "[$read_only]($read_only_style)[$path]($style) "
+style = "bold purple"
+read_only = "󰌾 "
+read_only_style = "coral"
+truncation_length = 4
+truncate_to_repo = true
+truncation_symbol = "…/"
+home_symbol = "󰜥 "
+use_os_path_sep = true
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Projects" = "󰲋 "
+"Developer" = "󰲋 "
+"~" = "󰜥 "
 
 # ──────────────────────────────────────────────────────────────────────────────
-# Git modules
+# Git - The Developer's Pulse
 # ──────────────────────────────────────────────────────────────────────────────
 
 [git_branch]
-format = "[$branch]($style) "
-style = "fg3"
+format = "[$symbol$branch(:$remote_branch)]($style) "
 symbol = " "
+style = "pink"
+truncation_length = 24
+truncation_symbol = "…"
+only_attached = false
 
-[git_status]
-format = "[[($conflicted$untracked$modified$staged$renamed$deleted)](rose) ($ahead_behind$stashed)]($style)"
-style = "sage"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+[git_commit]
+format = '[\($hash$tag\)]($style) '
+style = "fg3"
+commit_hash_length = 7
+tag_symbol = " 󰓹 "
+only_detached = true
+tag_disabled = false
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "fg3"
-rebase = "REBASING"
-merge = "MERGING"
-revert = "REVERTING"
-cherry_pick = "CHERRY-PICKING"
-bisect = "BISECTING"
-am = "AM"
-am_or_rebase = "AM/REBASE"
+style = "bold yellow"
+rebase = "󰳖 REBASE"
+merge = "󰘭 MERGE"
+revert = "󰕌 REVERT"
+cherry_pick = " CHERRY"
+bisect = " BISECT"
+am = "󰇚 AM"
+am_or_rebase = "󰇚 AM/REBASE"
+
+[git_metrics]
+format = '([+$added]($added_style) )([-$deleted]($deleted_style) )'
+added_style = "mint"
+deleted_style = "coral"
+disabled = false
+only_nonzero_diffs = true
+
+[git_status]
+format = '([$all_status$ahead_behind]($style))'
+style = "violet"
+conflicted = "󰞇 "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+up_to_date = ""
+untracked = "󰝒 "
+stashed = "󰏗 "
+modified = "󰏫 "
+staged = "󰐖 "
+renamed = "󰑕 "
+deleted = "󰍷 "
 
 # ──────────────────────────────────────────────────────────────────────────────
-# Language modules
+# Languages & Frameworks - Tech Stack Signatures
 # ──────────────────────────────────────────────────────────────────────────────
-
-[python]
-format = "[$virtualenv]($style) "
-style = "yellow"
-detect_extensions = []
-detect_files = []
 
 [nodejs]
-format = "[$symbol($version)]($style) "
+format = "[$symbol($version )]($style)"
+symbol = "󰎙 "
 style = "mint"
-symbol = " "
-detect_extensions = ["js", "mjs", "cjs", "ts", "tsx"]
-detect_files = ["package.json", ".node-version"]
+detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts", "tsx", "jsx"]
+detect_files = ["package.json", ".node-version", ".nvmrc"]
 detect_folders = ["node_modules"]
+not_capable_style = "fg3"
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = "󰌠 "
+style = "yellow"
+pyenv_version_name = true
+pyenv_prefix = ""
+python_binary = ["python3", "python"]
+detect_extensions = ["py", "pyw"]
+detect_files = ["requirements.txt", "pyproject.toml", "setup.py", "Pipfile", "tox.ini"]
 
 [rust]
-format = "[$symbol($version)]($style) "
+format = "[$symbol($version )]($style)"
+symbol = "󱘗 "
 style = "peach"
-symbol = " "
+detect_extensions = ["rs"]
+detect_files = ["Cargo.toml"]
 
 [golang]
-format = "[$symbol($version)]($style) "
-style = "sage"
-symbol = " "
+format = "[$symbol($version )]($style)"
+symbol = "󰟓 "
+style = "cyan"
+detect_extensions = ["go"]
+detect_files = ["go.mod", "go.sum", "go.work", "glide.yaml", "Gopkg.yml", "Gopkg.lock", ".go-version"]
+detect_folders = ["Godeps"]
 
 [ruby]
-format = "[$symbol($version)]($style) "
-style = "coral"
+format = "[$symbol($version )]($style)"
 symbol = " "
+style = "coral"
+detect_extensions = ["rb"]
+detect_files = ["Gemfile", ".ruby-version", "Rakefile"]
+detect_folders = []
 
 [java]
-format = "[$symbol($version)]($style) "
-style = "peach"
+format = "[$symbol($version )]($style)"
 symbol = " "
+style = "peach"
+detect_extensions = ["java", "class", "jar", "gradle", "clj", "cljc"]
+detect_files = ["pom.xml", "build.gradle.kts", "build.sbt", ".java-version", "deps.edn", "project.clj", "build.boot", ".sdkmanrc"]
+
+[kotlin]
+format = "[$symbol($version )]($style)"
+symbol = "󱈙 "
+style = "violet"
+detect_extensions = ["kt", "kts"]
+
+[swift]
+format = "[$symbol($version )]($style)"
+symbol = "󰛥 "
+style = "peach"
+detect_extensions = ["swift"]
+detect_files = ["Package.swift"]
+
+[elixir]
+format = '[$symbol($version \(OTP $otp_version\) )]($style)'
+symbol = " "
+style = "purple"
+detect_extensions = ["ex", "exs"]
+detect_files = ["mix.exs"]
+
+[lua]
+format = "[$symbol($version )]($style)"
+symbol = "󰢱 "
+style = "sky"
+detect_extensions = ["lua"]
+detect_files = [".lua-version", "lua", "stylua.toml", ".luacheckrc"]
+
+[php]
+format = "[$symbol($version )]($style)"
+symbol = "󰌟 "
+style = "violet"
+detect_extensions = ["php"]
+detect_files = ["composer.json", ".php-version"]
+
+[docker_context]
+format = "[$symbol$context]($style) "
+symbol = "󰡨 "
+style = "cyan"
+only_with_files = true
+detect_extensions = []
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+
+[kubernetes]
+format = '[$symbol$context( \($namespace\))]($style) '
+symbol = "󱃾 "
+style = "sky"
+disabled = false
+detect_extensions = []
+detect_files = []
+detect_folders = []
+detect_env_vars = ["KUBECONFIG"]
+context_aliases = {}
+user_aliases = {}
+
+[terraform]
+format = "[$symbol$workspace]($style) "
+symbol = "󱁢 "
+style = "violet"
+detect_extensions = ["tf", "tfplan", "tfstate"]
+detect_files = []
+detect_folders = [".terraform"]
+
+[aws]
+format = '[$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
+symbol = "󰸏 "
+style = "yellow"
+force_display = false
+
+[gcloud]
+format = '[$symbol$account(@$domain)(\($region\))]($style) '
+symbol = "󱇶 "
+style = "sky"
 
 # ──────────────────────────────────────────────────────────────────────────────
-# Status modules
+# System Status - The Machine's Heartbeat
 # ──────────────────────────────────────────────────────────────────────────────
 
 [cmd_duration]
-format = "[$duration]($style) "
-style = "yellow"
+format = "[󱎫 $duration]($style) "
+style = "fg2"
 min_time = 2_000
 show_milliseconds = false
+show_notifications = false
+min_time_to_notify = 45_000
+
+[time]
+format = "[$time]($style)"
+style = "fg3"
+disabled = false
+use_12hr = false
+time_format = "%H:%M"
+utc_time_offset = "local"
+
+[fill]
+symbol = " "
+style = ""
 
 [jobs]
 format = "[$symbol$number]($style) "
-style = "lavender"
-symbol = "✦ "
-threshold = 1
+symbol = "󰜎 "
+style = "violet"
+number_threshold = 1
+symbol_threshold = 1
 
 [battery]
 format = "[$symbol$percentage]($style) "
 full_symbol = "󰁹 "
 charging_symbol = "󰂄 "
 discharging_symbol = "󰂃 "
+unknown_symbol = "󰂑 "
+empty_symbol = "󰂎 "
+disabled = false
 
 [[battery.display]]
-threshold = 20
-style = "coral"
+threshold = 15
+style = "bold coral"
+discharging_symbol = "󰁺 "
 
 [[battery.display]]
-threshold = 50
+threshold = 30
 style = "yellow"
+discharging_symbol = "󰁻 "
 
 [[battery.display]]
 threshold = 100
-style = "mint"
+style = "fg3"
 
-[time]
-format = "[$time]($style) "
+[memory_usage]
+format = "[$symbol${ram}( | ${swap})]($style) "
+symbol = "󰍛 "
 style = "fg2"
+threshold = 75
 disabled = true
-time_format = "%H:%M"
+
+[status]
+format = '[$symbol$status]($style) '
+symbol = "✘ "
+success_symbol = ""
+not_executable_symbol = "󰂭 "
+not_found_symbol = "󰍉 "
+sigint_symbol = "󰂭 "
+signal_symbol = "󱐋 "
+style = "coral"
+map_symbol = true
+recognize_signal_code = true
+disabled = false
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Context Awareness - Environment Intelligence
+# ──────────────────────────────────────────────────────────────────────────────
 
 [username]
 format = "[$user]($style) "
-style_user = "teal"
-style_root = "coral"
+style_user = "purple"
+style_root = "bold coral"
 show_always = false
 
 [hostname]
 format = "[@$hostname]($style) "
 style = "fg2"
 ssh_only = true
+ssh_symbol = "󰣀 "
+trim_at = "."
+
+[localip]
+format = "[$localipv4]($style) "
+style = "fg3"
+ssh_only = true
+disabled = false
+
+[shlvl]
+format = "[$symbol$shlvl]($style) "
+symbol = "󰜮 "
+style = "yellow"
+threshold = 2
+repeat = false
+disabled = false
+
+[sudo]
+format = "[$symbol]($style)"
+symbol = "󰞀 "
+style = "bold coral"
+allow_windows = false
+disabled = false
+
+[container]
+format = '[$symbol \[$name\]]($style) '
+symbol = "󰏖"
+style = "cyan"
+
+[shell]
+format = "[$indicator]($style) "
+style = "fg3"
+bash_indicator = "bsh"
+fish_indicator = "fsh"
+zsh_indicator = ""
+powershell_indicator = "psh"
+ion_indicator = "ion"
+elvish_indicator = "elv"
+tcsh_indicator = "tsh"
+xonsh_indicator = "xsh"
+cmd_indicator = "cmd"
+nu_indicator = "nu"
+unknown_indicator = "?"
+disabled = true
+
+[os]
+format = "[$symbol]($style)"
+style = "fg2"
+disabled = true
+
+[os.symbols]
+Macos = "󰀵 "
+Linux = "󰌽 "
+Windows = "󰍲 "
+Ubuntu = "󰕈 "
+Arch = "󰣇 "
+Fedora = "󰣛 "
+Debian = "󰣚 "
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Package Ecosystem
+# ──────────────────────────────────────────────────────────────────────────────
+
+[package]
+format = "[$symbol$version]($style) "
+symbol = "󰏗 "
+style = "fg2"
+display_private = false
+disabled = false
+version_format = "v${raw}"
+
+[nix_shell]
+format = '[$symbol$state( \($name\))]($style) '
+symbol = "󱄅 "
+style = "cyan"
+impure_msg = ""
+pure_msg = ""
+unknown_msg = ""
+
+[conda]
+format = "[$symbol$environment]($style) "
+symbol = "󱔎 "
+style = "mint"
+truncation_length = 1
+ignore_base = true
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Additional Languages (condensed)
+# ──────────────────────────────────────────────────────────────────────────────
+
+[c]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "fg2"
+
+[cmake]
+format = "[$symbol($version )]($style)"
+symbol = "󰔶 "
+style = "fg2"
+
+[dart]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "cyan"
+
+[deno]
+format = "[$symbol($version )]($style)"
+symbol = "󦕯 "
+style = "mint"
+
+[dotnet]
+format = "[$symbol($version )(󰓾 $tfm )]($style)"
+symbol = "󰪮 "
+style = "violet"
+
+[haskell]
+format = "[$symbol($version )]($style)"
+symbol = "󰲒 "
+style = "purple"
+
+[nim]
+format = "[$symbol($version )]($style)"
+symbol = "󰆥 "
+style = "yellow"
+
+[ocaml]
+format = '[$symbol($version )(\($switch_indicator$switch_name\) )]($style)'
+symbol = " "
+style = "peach"
+
+[perl]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "sky"
+
+[scala]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "coral"
+
+[zig]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "peach"
+
+[vlang]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "sky"
+
+[gleam]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "pink"

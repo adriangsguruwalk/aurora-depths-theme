@@ -1,19 +1,52 @@
-# Aurora Depths Theme for Ghostty - 2026 Edition
-# Digital Hygge meets modern pastels with vibrant teal
-# WCAG AA accessibility standards (4.5:1 contrast minimum for text)
+# ══════════════════════════════════════════════════════════════════════════════
+# Aurora Depths Theme for Ghostty - Purple Edition
+# Sophisticated purple-first palette with WCAG AA compliance
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# Color Palette Reference (Purple Edition):
+# ──────────────────────────────────────────────────────────────────────────────
+# Backgrounds (purple-tinted):
+#   bg0: #1a1825  (deepest - purple-black canvas)
+#   bg1: #242030  (elevated surfaces)
+#   bg2: #2e293c  (panels, sidebars)
+#   bg3: #3a3550  (selections, highlights)
+#   bg4: #4a4565  (borders, separators)
+#
+# Foregrounds:
+#   fg0: #e8e6f0  (primary text - 12:1 contrast)
+#   fg1: #c4c0d4  (secondary text - 8:1 contrast)
+#   fg2: #908ca4  (muted text - 5:1 contrast)
+#   fg3: #686480  (disabled text - 3.5:1 contrast)
+#
+# Accents:
+#   purple:  #c4b5f0  (Functions, primary accent)
+#   violet:  #a78bfa  (Decorators, properties)
+#   pink:    #f0a0c8  (Keywords, operators)
+#   magenta: #e879a8  (Control flow)
+#   cyan:    #7dd3d0  (Types, classes)
+#   teal:    #5ccfb8  (Type parameters)
+#   sage:    #a8d4a8  (Strings)
+#   mint:    #8ce0a0  (Success, booleans)
+#   yellow:  #e8d088  (Warnings)
+#   peach:   #e8a888  (Numbers, constants)
+#   coral:   #e88090  (Errors)
+#   sky:     #88c4f0  (Variables)
+#   rose:    #e0a8c0  (Imports)
+# ══════════════════════════════════════════════════════════════════════════════
 
-# Background colors (depth hierarchy)
-background = #1a1d26
-# Foreground (primary text - 13:1 contrast ratio)
-foreground = #e5eaf2
+# Background (purple-black canvas)
+background = #1a1825
 
-# Cursor
-cursor-color = #e5eaf2
-cursor-text = #1a1d26
+# Foreground (primary text - 12:1 contrast ratio)
+foreground = #e8e6f0
+
+# Cursor (using primary purple accent)
+cursor-color = #c4b5f0
+cursor-text = #1a1825
 
 # Selection (elevated surface with good visibility)
-selection-background = #3a3f4f
-selection-foreground = #e5eaf2
+selection-background = #3a3550
+selection-foreground = #e8e6f0
 
 # Split/border colors
 unfocused-split-opacity = 0.9
@@ -23,59 +56,65 @@ window-padding-x = 12
 window-padding-y = 8
 window-padding-balance = true
 
-# ANSI Colors (0-15) - 2026 Edition
-# Following semantic color assignments:
+# ══════════════════════════════════════════════════════════════════════════════
+# ANSI Colors (0-15) - Purple Edition
+# ══════════════════════════════════════════════════════════════════════════════
+# Semantic assignments:
 # - Black/bright black: Background variations
 # - Red: Coral - errors, deletions
 # - Green: Mint - success, additions
 # - Yellow: Warnings, cautions
-# - Blue: Soft Sky - keywords, links
-# - Magenta: Rose - special, imports
-# - Cyan: Sage - strings, literals
+# - Blue: Purple - primary accent (functions)
+# - Magenta: Pink - keywords, operators
+# - Cyan: Cyan - types, classes
 # - White: Foreground variations
 
 # Normal colors (0-7)
-# Black - darker background
-palette = 0=#252936
+# Black - elevated background
+palette = 0=#242030
 # Red - coral (errors)
-palette = 1=#d4878f
+palette = 1=#e88090
 # Green - mint (success)
-palette = 2=#8fcf9a
+palette = 2=#8ce0a0
 # Yellow - warnings
-palette = 3=#e6c783
-# Blue - soft sky (keywords)
-palette = 4=#91c4d8
-# Magenta - rose (special)
-palette = 5=#c9a0b8
-# Cyan - sage (strings)
-palette = 6=#a3c9a8
+palette = 3=#e8d088
+# Blue - purple (primary accent)
+palette = 4=#c4b5f0
+# Magenta - pink (keywords)
+palette = 5=#f0a0c8
+# Cyan - types
+palette = 6=#7dd3d0
 # White - secondary text
-palette = 7=#b8c5d4
+palette = 7=#c4c0d4
 
 # Bright colors (8-15)
-# Bright black - elevated surface
-palette = 8=#3a3f4f
-# Bright red (coral)
-palette = 9=#e09ea5
-# Bright green (mint)
-palette = 10=#a8e0b2
-# Bright yellow
-palette = 11=#f0d99b
-# Bright blue
-palette = 12=#a8d4e8
-# Bright magenta (rose)
-palette = 13=#e0b8d4
-# Bright cyan (teal)
-palette = 14=#9ae8dc
+# Bright black - selection background
+palette = 8=#3a3550
+# Bright red - lighter coral
+palette = 9=#f0a0a8
+# Bright green - lighter mint
+palette = 10=#a0f0b8
+# Bright yellow - lighter yellow
+palette = 11=#f0e0a0
+# Bright blue - violet (secondary purple)
+palette = 12=#a78bfa
+# Bright magenta - rose
+palette = 13=#e0a8c0
+# Bright cyan - teal
+palette = 14=#5ccfb8
 # Bright white - primary text
-palette = 15=#e5eaf2
+palette = 15=#e8e6f0
 
+# ══════════════════════════════════════════════════════════════════════════════
 # Font configuration (example - adjust to your preference)
+# ══════════════════════════════════════════════════════════════════════════════
 # font-family = "JetBrains Mono"
 # font-size = 14
 # font-feature = calt
 # font-feature = liga
 
+# ══════════════════════════════════════════════════════════════════════════════
 # Additional visual settings for eye comfort
+# ══════════════════════════════════════════════════════════════════════════════
 # adjust-cell-height = 20%
 # minimum-contrast = 1.1
