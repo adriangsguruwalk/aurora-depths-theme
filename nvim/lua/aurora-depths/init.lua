@@ -1,9 +1,9 @@
--- Aurora Depths - A Poimandres x Nord inspired theme
--- Designed following Material Design 3 principles and WCAG AA accessibility standards
+-- Aurora Depths 2026 Edition - A modern, cozy theme
+-- Embracing Digital Hygge and pastel warmth with WCAG AA accessibility
 
 local M = {}
 
--- Color Palette
+-- Color Palette - 2026 Edition
 M.colors = {
 	-- Background hierarchy (depth layers)
 	bg0 = "#1a1d26", -- Deepest background
@@ -18,17 +18,26 @@ M.colors = {
 	fg2 = "#8a95a6", -- Muted text, placeholders (5:1)
 	fg3 = "#6a7586", -- Disabled, line numbers (3.5:1)
 
-	-- Accent colors (all maintain 4.5:1+ contrast on bg0)
-	blue = "#8fc6d9", -- Functions, methods
-	deep_blue = "#6a9cb8", -- Keywords, operators (Nord-inspired)
-	cyan = "#7fccbf", -- Strings
-	teal = "#5fb3a1", -- Primary accent, links
-	green = "#9dc08b", -- Success, additions, booleans
-	yellow = "#e6c783", -- Warnings, cautions
-	orange = "#d4927a", -- Numbers, constants
-	pink = "#e48ebb", -- Types, classes, interfaces (Poimandres-inspired)
-	red = "#c76b75", -- Errors, deletions
-	purple = "#a699c9", -- Variables, parameters
+	-- Accent colors - 2026 Edition (all maintain 4.5:1+ contrast on bg0)
+	blue = "#91c4d8", -- Soft Sky - keywords, operators
+	-- teal = "#7dd3c4", -- Vibrant Teal - functions, methods (2026 hero color)
+	teal = "#6ec9b8",
+	mauve = "#d4a5c9", -- Mauve - types, classes (2026 trend)
+	sage = "#a3c9a8", -- Sage - strings, literals
+	mint = "#8fcf9a", -- Mint - success, booleans
+	yellow = "#e6c783", -- Yellow - warnings, cautions
+	peach = "#e0a88c", -- Peach - numbers, constants
+	rose = "#c9a0b8", -- Rose - imports, special keywords
+	coral = "#d4878f", -- Coral - errors, deletions
+	lavender = "#b4a7d6", -- Lavender - variables, parameters
+
+	-- Legacy aliases (for compatibility)
+	cyan = "#a3c9a8", -- Maps to sage
+	green = "#8fcf9a", -- Maps to mint
+	orange = "#e0a88c", -- Maps to peach
+	pink = "#c9a0b8", -- Maps to rose
+	red = "#d4878f", -- Maps to coral
+	purple = "#b4a7d6", -- Maps to lavender
 
 	-- Special colors
 	none = "NONE",
@@ -147,88 +156,88 @@ function M.setup()
 	-- Syntax Highlighting
 	hi("Comment", { fg = colors.fg2, style = "italic" })
 
-	hi("Constant", { fg = colors.orange })
-	hi("String", { fg = colors.green })
-	hi("Character", { fg = colors.cyan })
-	hi("Number", { fg = colors.orange })
-	hi("Boolean", { fg = colors.green })
-	hi("Float", { fg = colors.orange })
+	hi("Constant", { fg = colors.peach })
+	hi("String", { fg = colors.sage })
+	hi("Character", { fg = colors.sage })
+	hi("Number", { fg = colors.peach })
+	hi("Boolean", { fg = colors.mint })
+	hi("Float", { fg = colors.peach })
 
 	hi("Identifier", { fg = colors.fg0 })
-	hi("Function", { fg = colors.cyan })
+	hi("Function", { fg = colors.teal })
 
-	hi("Statement", { fg = colors.deep_blue })
-	hi("Conditional", { fg = colors.deep_blue })
-	hi("Repeat", { fg = colors.deep_blue })
-	hi("Label", { fg = colors.deep_blue })
-	hi("Operator", { fg = colors.deep_blue })
-	hi("Keyword", { fg = colors.deep_blue })
-	hi("Exception", { fg = colors.red })
+	hi("Statement", { fg = colors.blue })
+	hi("Conditional", { fg = colors.blue })
+	hi("Repeat", { fg = colors.blue })
+	hi("Label", { fg = colors.blue })
+	hi("Operator", { fg = colors.blue })
+	hi("Keyword", { fg = colors.blue })
+	hi("Exception", { fg = colors.coral })
 
-	hi("PreProc", { fg = colors.pink })
-	hi("Include", { fg = colors.pink })
-	hi("Define", { fg = colors.pink })
-	hi("Macro", { fg = colors.pink })
-	hi("PreCondit", { fg = colors.pink })
+	hi("PreProc", { fg = colors.rose })
+	hi("Include", { fg = colors.rose })
+	hi("Define", { fg = colors.rose })
+	hi("Macro", { fg = colors.rose })
+	hi("PreCondit", { fg = colors.rose })
 
-	hi("Type", { fg = colors.pink })
-	hi("StorageClass", { fg = colors.pink })
-	hi("Structure", { fg = colors.pink })
-	hi("Typedef", { fg = colors.pink })
+	hi("Type", { fg = colors.mauve })
+	hi("StorageClass", { fg = colors.mauve })
+	hi("Structure", { fg = colors.mauve })
+	hi("Typedef", { fg = colors.mauve })
 
-	hi("Special", { fg = colors.purple })
-	hi("SpecialChar", { fg = colors.purple })
+	hi("Special", { fg = colors.lavender })
+	hi("SpecialChar", { fg = colors.lavender })
 	hi("Tag", { fg = colors.blue })
 	hi("Delimiter", { fg = colors.fg1 })
 	hi("SpecialComment", { fg = colors.fg2, style = "bold" })
-	hi("Debug", { fg = colors.red })
+	hi("Debug", { fg = colors.coral })
 
 	hi("Underlined", { fg = colors.blue, style = "underline" })
 	hi("Ignore", { fg = colors.fg3 })
-	hi("Error", { fg = colors.red, style = "bold" })
+	hi("Error", { fg = colors.coral, style = "bold" })
 	hi("Todo", { fg = colors.bg0, bg = colors.yellow, style = "bold" })
 
 	-- Treesitter Highlights
 	hi("@variable", { fg = colors.fg0 })
-	hi("@variable.builtin", { fg = colors.purple })
-	hi("@variable.parameter", { fg = colors.purple, style = "italic" })
+	hi("@variable.builtin", { fg = colors.lavender })
+	hi("@variable.parameter", { fg = colors.lavender, style = "italic" })
 	hi("@variable.member", { fg = colors.fg0 })
 
-	hi("@constant", { fg = colors.orange })
-	hi("@constant.builtin", { fg = colors.orange, style = "bold" })
-	hi("@constant.macro", { fg = colors.orange })
+	hi("@constant", { fg = colors.peach })
+	hi("@constant.builtin", { fg = colors.peach, style = "bold" })
+	hi("@constant.macro", { fg = colors.peach })
 
-	hi("@module", { fg = colors.pink })
-	hi("@label", { fg = colors.deep_blue })
+	hi("@module", { fg = colors.mauve })
+	hi("@label", { fg = colors.blue })
 
-	hi("@string", { fg = colors.green })
-	hi("@string.documentation", { fg = colors.green, style = "italic" })
-	hi("@string.regexp", { fg = colors.pink })
-	hi("@string.escape", { fg = colors.pink })
+	hi("@string", { fg = colors.sage })
+	hi("@string.documentation", { fg = colors.sage, style = "italic" })
+	hi("@string.regexp", { fg = colors.rose })
+	hi("@string.escape", { fg = colors.rose })
 	hi("@string.special", { fg = colors.yellow })
 
-	hi("@character", { fg = colors.cyan })
-	hi("@character.special", { fg = colors.purple })
+	hi("@character", { fg = colors.sage })
+	hi("@character.special", { fg = colors.lavender })
 
-	hi("@boolean", { fg = colors.green })
-	hi("@number", { fg = colors.orange })
-	hi("@number.float", { fg = colors.orange })
+	hi("@boolean", { fg = colors.mint })
+	hi("@number", { fg = colors.peach })
+	hi("@number.float", { fg = colors.peach })
 
-	hi("@type", { fg = colors.pink })
-	hi("@type.builtin", { fg = colors.pink, style = "italic" })
-	hi("@type.definition", { fg = colors.pink })
+	hi("@type", { fg = colors.mauve })
+	hi("@type.builtin", { fg = colors.mauve, style = "italic" })
+	hi("@type.definition", { fg = colors.mauve })
 
-	hi("@attribute", { fg = colors.purple })
+	hi("@attribute", { fg = colors.lavender })
 	hi("@property", { fg = colors.fg0 })
 
-	hi("@function", { fg = colors.cyan })
-	hi("@function.builtin", { fg = colors.cyan, style = "italic" })
-	hi("@function.call", { fg = colors.cyan })
-	hi("@function.macro", { fg = colors.pink })
-	hi("@function.method", { fg = colors.blue })
-	hi("@function.method.call", { fg = colors.blue })
+	hi("@function", { fg = colors.teal })
+	hi("@function.builtin", { fg = colors.teal, style = "italic" })
+	hi("@function.call", { fg = colors.teal })
+	hi("@function.method", { fg = colors.teal })
+	hi("@function.method.call", { fg = colors.teal })
+	hi("@function.macro", { fg = colors.rose })
 
-	hi("@constructor", { fg = colors.pink })
+	hi("@constructor", { fg = colors.mauve })
 
 	hi("@operator", { fg = colors.blue })
 
@@ -236,24 +245,24 @@ function M.setup()
 	hi("@keyword.coroutine", { fg = colors.blue })
 	hi("@keyword.function", { fg = colors.blue })
 	hi("@keyword.operator", { fg = colors.blue })
-	hi("@keyword.import", { fg = colors.pink })
+	hi("@keyword.import", { fg = colors.rose })
 	hi("@keyword.storage", { fg = colors.blue })
 	hi("@keyword.repeat", { fg = colors.blue })
 	hi("@keyword.return", { fg = colors.blue })
-	hi("@keyword.debug", { fg = colors.red })
-	hi("@keyword.exception", { fg = colors.red })
+	hi("@keyword.debug", { fg = colors.coral })
+	hi("@keyword.exception", { fg = colors.coral })
 	hi("@keyword.conditional", { fg = colors.blue })
 	hi("@keyword.conditional.ternary", { fg = colors.blue })
-	hi("@keyword.directive", { fg = colors.pink })
-	hi("@keyword.directive.define", { fg = colors.pink })
+	hi("@keyword.directive", { fg = colors.rose })
+	hi("@keyword.directive.define", { fg = colors.rose })
 
 	hi("@punctuation.delimiter", { fg = colors.fg1 })
 	hi("@punctuation.bracket", { fg = colors.fg1 })
-	hi("@punctuation.special", { fg = colors.purple })
+	hi("@punctuation.special", { fg = colors.lavender })
 
 	hi("@comment", { fg = colors.fg2, style = "italic" })
 	hi("@comment.documentation", { fg = colors.fg2, style = "italic" })
-	hi("@comment.error", { fg = colors.red, style = "bold" })
+	hi("@comment.error", { fg = colors.coral, style = "bold" })
 	hi("@comment.warning", { fg = colors.yellow, style = "bold" })
 	hi("@comment.todo", { fg = colors.bg0, bg = colors.yellow, style = "bold" })
 	hi("@comment.note", { fg = colors.bg0, bg = colors.teal, style = "bold" })
@@ -264,78 +273,78 @@ function M.setup()
 	hi("@markup.underline", { style = "underline" })
 	hi("@markup.heading", { fg = colors.blue, style = "bold" })
 	hi("@markup.quote", { fg = colors.fg1, style = "italic" })
-	hi("@markup.math", { fg = colors.purple })
+	hi("@markup.math", { fg = colors.lavender })
 	hi("@markup.link", { fg = colors.blue, style = "underline" })
-	hi("@markup.link.label", { fg = colors.cyan })
+	hi("@markup.link.label", { fg = colors.sage })
 	hi("@markup.link.url", { fg = colors.blue, style = "underline" })
-	hi("@markup.raw", { fg = colors.cyan })
+	hi("@markup.raw", { fg = colors.sage })
 	hi("@markup.raw.block", { fg = colors.fg0 })
 	hi("@markup.list", { fg = colors.blue })
-	hi("@markup.list.checked", { fg = colors.green })
+	hi("@markup.list.checked", { fg = colors.mint })
 	hi("@markup.list.unchecked", { fg = colors.fg2 })
 
-	hi("@diff.plus", { fg = colors.green })
-	hi("@diff.minus", { fg = colors.red })
+	hi("@diff.plus", { fg = colors.mint })
+	hi("@diff.minus", { fg = colors.coral })
 	hi("@diff.delta", { fg = colors.yellow })
 
 	hi("@tag", { fg = colors.blue })
-	hi("@tag.attribute", { fg = colors.purple })
+	hi("@tag.attribute", { fg = colors.lavender })
 	hi("@tag.delimiter", { fg = colors.fg1 })
 
 	-- LSP Semantic Tokens
-	hi("@lsp.type.class", { fg = colors.pink })
-	hi("@lsp.type.decorator", { fg = colors.purple })
-	hi("@lsp.type.enum", { fg = colors.pink })
-	hi("@lsp.type.enumMember", { fg = colors.orange })
-	hi("@lsp.type.function", { fg = colors.cyan })
-	hi("@lsp.type.interface", { fg = colors.yellow })
-	hi("@lsp.type.macro", { fg = colors.pink })
-	hi("@lsp.type.method", { fg = colors.blue })
-	hi("@lsp.type.namespace", { fg = colors.pink })
-	hi("@lsp.type.parameter", { fg = colors.purple, style = "italic" })
+	hi("@lsp.type.class", { fg = colors.mauve })
+	hi("@lsp.type.decorator", { fg = colors.lavender })
+	hi("@lsp.type.enum", { fg = colors.mauve })
+	hi("@lsp.type.enumMember", { fg = colors.peach })
+	hi("@lsp.type.function", { fg = colors.teal })
+	hi("@lsp.type.interface", { fg = colors.mauve })
+	hi("@lsp.type.macro", { fg = colors.rose })
+	hi("@lsp.type.method", { fg = colors.teal })
+	hi("@lsp.type.namespace", { fg = colors.mauve })
+	hi("@lsp.type.parameter", { fg = colors.lavender, style = "italic" })
 	hi("@lsp.type.property", { fg = colors.fg0 })
-	hi("@lsp.type.struct", { fg = colors.pink })
-	hi("@lsp.type.type", { fg = colors.pink })
-	hi("@lsp.type.typeParameter", { fg = colors.pink, style = "italic" })
+	hi("@lsp.type.struct", { fg = colors.mauve })
+	hi("@lsp.type.type", { fg = colors.mauve })
+	hi("@lsp.type.typeParameter", { fg = colors.mauve, style = "italic" })
 	hi("@lsp.type.variable", { fg = colors.fg0 })
 	hi("@lsp.mod.deprecated", { style = "strikethrough" })
 	hi("@lsp.mod.readonly", { style = "italic" })
 
 	-- Diagnostics
-	hi("DiagnosticError", { fg = colors.red })
+	hi("DiagnosticError", { fg = colors.coral })
 	hi("DiagnosticWarn", { fg = colors.yellow })
 	hi("DiagnosticInfo", { fg = colors.blue })
 	hi("DiagnosticHint", { fg = colors.teal })
-	hi("DiagnosticOk", { fg = colors.green })
+	hi("DiagnosticOk", { fg = colors.mint })
 
-	hi("DiagnosticVirtualTextError", { fg = colors.red, bg = "#352530" })
+	hi("DiagnosticVirtualTextError", { fg = colors.coral, bg = "#352832" })
 	hi("DiagnosticVirtualTextWarn", { fg = colors.yellow, bg = "#3a3525" })
 	hi("DiagnosticVirtualTextInfo", { fg = colors.blue, bg = "#253545" })
-	hi("DiagnosticVirtualTextHint", { fg = colors.teal, bg = "#253530" })
-	hi("DiagnosticVirtualTextOk", { fg = colors.green, bg = "#2a3325" })
+	hi("DiagnosticVirtualTextHint", { fg = colors.teal, bg = "#253835" })
+	hi("DiagnosticVirtualTextOk", { fg = colors.mint, bg = "#2a3328" })
 
-	hi("DiagnosticUnderlineError", { sp = colors.red, style = "undercurl" })
+	hi("DiagnosticUnderlineError", { sp = colors.coral, style = "undercurl" })
 	hi("DiagnosticUnderlineWarn", { sp = colors.yellow, style = "undercurl" })
 	hi("DiagnosticUnderlineInfo", { sp = colors.blue, style = "undercurl" })
 	hi("DiagnosticUnderlineHint", { sp = colors.teal, style = "undercurl" })
-	hi("DiagnosticUnderlineOk", { sp = colors.green, style = "undercurl" })
+	hi("DiagnosticUnderlineOk", { sp = colors.mint, style = "undercurl" })
 
-	hi("DiagnosticFloatingError", { fg = colors.red })
+	hi("DiagnosticFloatingError", { fg = colors.coral })
 	hi("DiagnosticFloatingWarn", { fg = colors.yellow })
 	hi("DiagnosticFloatingInfo", { fg = colors.blue })
 	hi("DiagnosticFloatingHint", { fg = colors.teal })
-	hi("DiagnosticFloatingOk", { fg = colors.green })
+	hi("DiagnosticFloatingOk", { fg = colors.mint })
 
-	hi("DiagnosticSignError", { fg = colors.red })
+	hi("DiagnosticSignError", { fg = colors.coral })
 	hi("DiagnosticSignWarn", { fg = colors.yellow })
 	hi("DiagnosticSignInfo", { fg = colors.blue })
 	hi("DiagnosticSignHint", { fg = colors.teal })
-	hi("DiagnosticSignOk", { fg = colors.green })
+	hi("DiagnosticSignOk", { fg = colors.mint })
 
 	-- Git Signs
-	hi("GitSignsAdd", { fg = colors.green })
+	hi("GitSignsAdd", { fg = colors.mint })
 	hi("GitSignsChange", { fg = colors.yellow })
-	hi("GitSignsDelete", { fg = colors.red })
+	hi("GitSignsDelete", { fg = colors.coral })
 	hi("GitSignsCurrentLineBlame", { fg = colors.fg3, style = "italic" })
 
 	-- Telescope
@@ -343,10 +352,10 @@ function M.setup()
 	hi("TelescopeNormal", { fg = colors.fg0, bg = colors.bg1 })
 	hi("TelescopePreviewTitle", { fg = colors.bg0, bg = colors.teal, style = "bold" })
 	hi("TelescopePromptTitle", { fg = colors.bg0, bg = colors.blue, style = "bold" })
-	hi("TelescopeResultsTitle", { fg = colors.bg0, bg = colors.purple, style = "bold" })
+	hi("TelescopeResultsTitle", { fg = colors.bg0, bg = colors.lavender, style = "bold" })
 	hi("TelescopeSelection", { fg = colors.fg0, bg = colors.bg3 })
 	hi("TelescopeSelectionCaret", { fg = colors.teal, bg = colors.bg3 })
-	hi("TelescopeMatching", { fg = colors.yellow, style = "bold" })
+	hi("TelescopeMatching", { fg = colors.teal, style = "bold" })
 	hi("TelescopePromptPrefix", { fg = colors.teal })
 
 	-- NvimTree / Neo-tree
@@ -354,23 +363,23 @@ function M.setup()
 	hi("NvimTreeFolderIcon", { fg = colors.blue })
 	hi("NvimTreeFolderName", { fg = colors.blue })
 	hi("NvimTreeOpenedFolderName", { fg = colors.blue, style = "bold" })
-	hi("NvimTreeRootFolder", { fg = colors.purple, style = "bold" })
+	hi("NvimTreeRootFolder", { fg = colors.lavender, style = "bold" })
 	hi("NvimTreeGitDirty", { fg = colors.yellow })
-	hi("NvimTreeGitNew", { fg = colors.green })
-	hi("NvimTreeGitDeleted", { fg = colors.red })
-	hi("NvimTreeSpecialFile", { fg = colors.pink })
+	hi("NvimTreeGitNew", { fg = colors.mint })
+	hi("NvimTreeGitDeleted", { fg = colors.coral })
+	hi("NvimTreeSpecialFile", { fg = colors.rose })
 	hi("NvimTreeIndentMarker", { fg = colors.bg4 })
 
 	hi("NeoTreeNormal", { fg = colors.fg0, bg = colors.bg0 })
 	hi("NeoTreeNormalNC", { fg = colors.fg1, bg = colors.bg0 })
 	hi("NeoTreeDirectoryIcon", { fg = colors.blue })
 	hi("NeoTreeDirectoryName", { fg = colors.blue })
-	hi("NeoTreeRootName", { fg = colors.purple, style = "bold" })
-	hi("NeoTreeGitAdded", { fg = colors.green })
+	hi("NeoTreeRootName", { fg = colors.lavender, style = "bold" })
+	hi("NeoTreeGitAdded", { fg = colors.mint })
 	hi("NeoTreeGitModified", { fg = colors.yellow })
-	hi("NeoTreeGitDeleted", { fg = colors.red })
-	hi("NeoTreeGitConflict", { fg = colors.red, style = "bold" })
-	hi("NeoTreeGitUntracked", { fg = colors.orange })
+	hi("NeoTreeGitDeleted", { fg = colors.coral })
+	hi("NeoTreeGitConflict", { fg = colors.coral, style = "bold" })
+	hi("NeoTreeGitUntracked", { fg = colors.peach })
 
 	-- Indent Blankline
 	hi("IndentBlanklineChar", { fg = colors.bg3 })
@@ -401,21 +410,21 @@ function M.setup()
 	hi("MasonMutedBlock", { fg = colors.bg0, bg = colors.fg2 })
 
 	-- Notify
-	hi("NotifyERRORBorder", { fg = colors.red })
+	hi("NotifyERRORBorder", { fg = colors.coral })
 	hi("NotifyWARNBorder", { fg = colors.yellow })
 	hi("NotifyINFOBorder", { fg = colors.blue })
 	hi("NotifyDEBUGBorder", { fg = colors.fg2 })
-	hi("NotifyTRACEBorder", { fg = colors.purple })
-	hi("NotifyERRORIcon", { fg = colors.red })
+	hi("NotifyTRACEBorder", { fg = colors.lavender })
+	hi("NotifyERRORIcon", { fg = colors.coral })
 	hi("NotifyWARNIcon", { fg = colors.yellow })
 	hi("NotifyINFOIcon", { fg = colors.blue })
 	hi("NotifyDEBUGIcon", { fg = colors.fg2 })
-	hi("NotifyTRACEIcon", { fg = colors.purple })
-	hi("NotifyERRORTitle", { fg = colors.red, style = "bold" })
+	hi("NotifyTRACEIcon", { fg = colors.lavender })
+	hi("NotifyERRORTitle", { fg = colors.coral, style = "bold" })
 	hi("NotifyWARNTitle", { fg = colors.yellow, style = "bold" })
 	hi("NotifyINFOTitle", { fg = colors.blue, style = "bold" })
 	hi("NotifyDEBUGTitle", { fg = colors.fg2, style = "bold" })
-	hi("NotifyTRACETitle", { fg = colors.purple, style = "bold" })
+	hi("NotifyTRACETitle", { fg = colors.lavender, style = "bold" })
 	hi("NotifyERRORBody", { fg = colors.fg0 })
 	hi("NotifyWARNBody", { fg = colors.fg0 })
 	hi("NotifyINFOBody", { fg = colors.fg0 })
@@ -427,33 +436,33 @@ function M.setup()
 	hi("CmpItemAbbrDeprecated", { fg = colors.fg2, style = "strikethrough" })
 	hi("CmpItemAbbrMatch", { fg = colors.teal, style = "bold" })
 	hi("CmpItemAbbrMatchFuzzy", { fg = colors.teal })
-	hi("CmpItemKind", { fg = colors.purple })
+	hi("CmpItemKind", { fg = colors.lavender })
 	hi("CmpItemMenu", { fg = colors.fg2 })
-	hi("CmpItemKindClass", { fg = colors.pink })
-	hi("CmpItemKindColor", { fg = colors.pink })
-	hi("CmpItemKindConstant", { fg = colors.orange })
-	hi("CmpItemKindConstructor", { fg = colors.pink })
-	hi("CmpItemKindEnum", { fg = colors.pink })
-	hi("CmpItemKindEnumMember", { fg = colors.orange })
-	hi("CmpItemKindEvent", { fg = colors.purple })
+	hi("CmpItemKindClass", { fg = colors.mauve })
+	hi("CmpItemKindColor", { fg = colors.rose })
+	hi("CmpItemKindConstant", { fg = colors.peach })
+	hi("CmpItemKindConstructor", { fg = colors.mauve })
+	hi("CmpItemKindEnum", { fg = colors.mauve })
+	hi("CmpItemKindEnumMember", { fg = colors.peach })
+	hi("CmpItemKindEvent", { fg = colors.lavender })
 	hi("CmpItemKindField", { fg = colors.fg0 })
 	hi("CmpItemKindFile", { fg = colors.blue })
 	hi("CmpItemKindFolder", { fg = colors.blue })
-	hi("CmpItemKindFunction", { fg = colors.cyan })
-	hi("CmpItemKindInterface", { fg = colors.yellow })
-	hi("CmpItemKindKeyword", { fg = colors.deep_blue })
-	hi("CmpItemKindMethod", { fg = colors.blue })
-	hi("CmpItemKindModule", { fg = colors.pink })
-	hi("CmpItemKindOperator", { fg = colors.deep_blue })
+	hi("CmpItemKindFunction", { fg = colors.teal })
+	hi("CmpItemKindInterface", { fg = colors.mauve })
+	hi("CmpItemKindKeyword", { fg = colors.blue })
+	hi("CmpItemKindMethod", { fg = colors.teal })
+	hi("CmpItemKindModule", { fg = colors.mauve })
+	hi("CmpItemKindOperator", { fg = colors.blue })
 	hi("CmpItemKindProperty", { fg = colors.fg0 })
-	hi("CmpItemKindReference", { fg = colors.purple })
-	hi("CmpItemKindSnippet", { fg = colors.green })
-	hi("CmpItemKindStruct", { fg = colors.pink })
+	hi("CmpItemKindReference", { fg = colors.lavender })
+	hi("CmpItemKindSnippet", { fg = colors.sage })
+	hi("CmpItemKindStruct", { fg = colors.mauve })
 	hi("CmpItemKindText", { fg = colors.fg1 })
-	hi("CmpItemKindTypeParameter", { fg = colors.pink })
-	hi("CmpItemKindUnit", { fg = colors.orange })
-	hi("CmpItemKindValue", { fg = colors.orange })
-	hi("CmpItemKindVariable", { fg = colors.purple })
+	hi("CmpItemKindTypeParameter", { fg = colors.mauve })
+	hi("CmpItemKindUnit", { fg = colors.peach })
+	hi("CmpItemKindValue", { fg = colors.peach })
+	hi("CmpItemKindVariable", { fg = colors.lavender })
 
 	-- Noice
 	hi("NoiceCmdline", { fg = colors.fg0, bg = colors.bg1 })
@@ -469,14 +478,14 @@ function M.setup()
 	hi("DashboardHeader", { fg = colors.teal })
 	hi("DashboardFooter", { fg = colors.fg2, style = "italic" })
 	hi("DashboardCenter", { fg = colors.blue })
-	hi("DashboardShortcut", { fg = colors.purple })
+	hi("DashboardShortcut", { fg = colors.lavender })
 	hi("DashboardIcon", { fg = colors.teal })
 	hi("DashboardDesc", { fg = colors.fg0 })
 	hi("DashboardKey", { fg = colors.yellow })
 
 	hi("AlphaHeader", { fg = colors.teal })
 	hi("AlphaButtons", { fg = colors.blue })
-	hi("AlphaShortcut", { fg = colors.purple })
+	hi("AlphaShortcut", { fg = colors.lavender })
 	hi("AlphaFooter", { fg = colors.fg2, style = "italic" })
 
 	-- Bufferline (highlight groups for when not using the integration function)
@@ -486,7 +495,7 @@ function M.setup()
 	hi("BufferLineBufferSelected", { fg = colors.fg0, bg = colors.bg0, style = "bold" })
 	hi("BufferLineBufferVisible", { fg = colors.fg1, bg = colors.bg0 })
 	hi("BufferLineCloseButton", { fg = colors.fg2, bg = colors.bg1 })
-	hi("BufferLineCloseButtonSelected", { fg = colors.red, bg = colors.bg0 })
+	hi("BufferLineCloseButtonSelected", { fg = colors.coral, bg = colors.bg0 })
 	hi("BufferLineCloseButtonVisible", { fg = colors.fg1, bg = colors.bg0 })
 	hi("BufferLineIndicatorSelected", { fg = colors.teal, bg = colors.bg0 })
 	hi("BufferLineModified", { fg = colors.yellow, bg = colors.bg1 })
@@ -547,7 +556,7 @@ function M.bufferline()
 		buffer_selected = { fg = colors.fg0, bg = colors.bg0, bold = true, italic = false },
 		close_button = { fg = colors.fg2, bg = colors.bg1 },
 		close_button_visible = { fg = colors.fg1, bg = colors.bg0 },
-		close_button_selected = { fg = colors.red, bg = colors.bg0 },
+		close_button_selected = { fg = colors.coral, bg = colors.bg0 },
 		indicator_visible = { fg = colors.bg0, bg = colors.bg0 },
 		indicator_selected = { fg = colors.teal, bg = colors.bg0 },
 		modified = { fg = colors.yellow, bg = colors.bg1 },
@@ -563,16 +572,16 @@ function M.bufferline()
 		tab_selected = { fg = colors.fg0, bg = colors.bg0, bold = true },
 		tab_separator = { fg = colors.bg0, bg = colors.bg1 },
 		tab_separator_selected = { fg = colors.bg0, bg = colors.bg0 },
-		tab_close = { fg = colors.red, bg = colors.bg1 },
+		tab_close = { fg = colors.coral, bg = colors.bg1 },
 		numbers = { fg = colors.fg3, bg = colors.bg1 },
 		numbers_visible = { fg = colors.fg2, bg = colors.bg0 },
 		numbers_selected = { fg = colors.teal, bg = colors.bg0, bold = true },
-		error = { fg = colors.red, bg = colors.bg1 },
-		error_visible = { fg = colors.red, bg = colors.bg0 },
-		error_selected = { fg = colors.red, bg = colors.bg0, bold = true },
-		error_diagnostic = { fg = colors.red, bg = colors.bg1 },
-		error_diagnostic_visible = { fg = colors.red, bg = colors.bg0 },
-		error_diagnostic_selected = { fg = colors.red, bg = colors.bg0, bold = true },
+		error = { fg = colors.coral, bg = colors.bg1 },
+		error_visible = { fg = colors.coral, bg = colors.bg0 },
+		error_selected = { fg = colors.coral, bg = colors.bg0, bold = true },
+		error_diagnostic = { fg = colors.coral, bg = colors.bg1 },
+		error_diagnostic_visible = { fg = colors.coral, bg = colors.bg0 },
+		error_diagnostic_selected = { fg = colors.coral, bg = colors.bg0, bold = true },
 		warning = { fg = colors.yellow, bg = colors.bg1 },
 		warning_visible = { fg = colors.yellow, bg = colors.bg0 },
 		warning_selected = { fg = colors.yellow, bg = colors.bg0, bold = true },
@@ -594,9 +603,9 @@ function M.bufferline()
 		diagnostic = { fg = colors.fg3, bg = colors.bg1 },
 		diagnostic_visible = { fg = colors.fg3, bg = colors.bg0 },
 		diagnostic_selected = { fg = colors.fg2, bg = colors.bg0, bold = true },
-		pick = { fg = colors.pink, bg = colors.bg1, bold = true },
-		pick_visible = { fg = colors.pink, bg = colors.bg0, bold = true },
-		pick_selected = { fg = colors.pink, bg = colors.bg0, bold = true },
+		pick = { fg = colors.rose, bg = colors.bg1, bold = true },
+		pick_visible = { fg = colors.rose, bg = colors.bg0, bold = true },
+		pick_selected = { fg = colors.rose, bg = colors.bg0, bold = true },
 		offset_separator = { fg = colors.bg4, bg = colors.bg0 },
 		trunc_marker = { fg = colors.fg3, bg = colors.bg0 },
 	}

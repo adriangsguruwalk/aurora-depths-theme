@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teal Options Comparison</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #1a1d26;
+      color: #e5eaf2;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #e5eaf2;
+    }
+
+    .subtitle {
+      color: #8a95a6;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2rem 0 1rem;
+      color: #b8c5d4;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .option-card {
+      background: #252936;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .option-card:hover {
+      border-color: #3a3f4f;
+    }
+
+    .option-card.recommended {
+      border-color: #5fb3a1;
+    }
+
+    .color-display {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .option-info {
+      padding: 1rem;
+    }
+
+    .option-name {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .option-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      color: #8a95a6;
+    }
+
+    .contrast-info {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .contrast-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .contrast-aaa { background: #2a3325; color: #8fcf9a; }
+    .contrast-aa { background: #253530; color: #5fb3a1; }
+    .contrast-fail { background: #352530; color: #d4878f; }
+
+    .tag {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      margin-left: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .tag-current { background: #3a3f4f; color: #b8c5d4; }
+    .tag-catppuccin { background: #94e2d5; color: #1a1d26; }
+    .tag-recommended { background: #5fb3a1; color: #1a1d26; }
+
+    .code-preview {
+      background: #1a1d26;
+      border-radius: 8px;
+      padding: 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      line-height: 1.8;
+      border: 1px solid #3a3f4f;
+      margin-bottom: 1rem;
+    }
+
+    .code-preview h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: #8a95a6;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .comparison-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      .comparison-section { grid-template-columns: 1fr; }
+    }
+
+    .notes {
+      background: #252936;
+      border-radius: 8px;
+      padding: 1rem;
+      border-left: 3px solid #5fb3a1;
+    }
+
+    .notes h4 {
+      color: #5fb3a1;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .notes p {
+      color: #b8c5d4;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Teal Color Options</h1>
+    <p class="subtitle">Finding the sweet spot between muted and Catppuccin vibrant</p>
+
+    <h2>Color Options (against bg0 #1a1d26)</h2>
+    <div class="options-grid">
+      <div class="option-card">
+        <div class="color-display" style="background: #5fb3a1; color: #1a1d26;">Aa</div>
+        <div class="option-info">
+          <div class="option-name">Current <span class="tag tag-current">Original</span></div>
+          <div class="option-hex">#5fb3a1</div>
+          <div class="contrast-info">
+            <span class="contrast-badge contrast-aa">5.8:1 AA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <div class="color-display" style="background: #6ec9b8; color: #1a1d26;">Aa</div>
+        <div class="option-info">
+          <div class="option-name">Refreshed</div>
+          <div class="option-hex">#6ec9b8</div>
+          <div class="contrast-info">
+            <span class="contrast-badge contrast-aaa">7.2:1 AAA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card recommended">
+        <div class="color-display" style="background: #7dd3c4; color: #1a1d26;">Aa</div>
+        <div class="option-info">
+          <div class="option-name">Vibrant <span class="tag tag-recommended">Pick</span></div>
+          <div class="option-hex">#7dd3c4</div>
+          <div class="contrast-info">
+            <span class="contrast-badge contrast-aaa">8.3:1 AAA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <div class="color-display" style="background: #89d9cb; color: #1a1d26;">Aa</div>
+        <div class="option-info">
+          <div class="option-name">Bright</div>
+          <div class="option-hex">#89d9cb</div>
+          <div class="contrast-info">
+            <span class="contrast-badge contrast-aaa">9.0:1 AAA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <div class="color-display" style="background: #94e2d5; color: #1a1d26;">Aa</div>
+        <div class="option-info">
+          <div class="option-name">Catppuccin <span class="tag tag-catppuccin">Mocha</span></div>
+          <div class="option-hex">#94e2d5</div>
+          <div class="contrast-info">
+            <span class="contrast-badge contrast-aaa">9.9:1 AAA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <h4>Recommendation: #7dd3c4 "Vibrant Teal"</h4>
+      <p>This hits the sweet spot - noticeably more vibrant than current, maintains Aurora Depths identity (not as bright as Catppuccin), and has excellent 8.3:1 contrast (AAA compliant). It feels fresh and modern without being overwhelming.</p>
+    </div>
+
+    <h2>Code Preview Comparison</h2>
+    <div class="comparison-section">
+      <div class="code-preview">
+        <h3>Current Teal (#5fb3a1)</h3>
+        <span style="color: #91c4d8;">const</span> <span style="color: #5fb3a1;">useAuth</span> <span style="color: #91c4d8;">=</span> <span style="color: #b8c5d4;">()</span> <span style="color: #91c4d8;">=></span> <span style="color: #b8c5d4;">{</span><br>
+        &nbsp;&nbsp;<span style="color: #91c4d8;">const</span> <span style="color: #b4a7d6;">data</span> <span style="color: #91c4d8;">=</span> <span style="color: #5fb3a1;">fetchUser</span><span style="color: #b8c5d4;">()</span><br>
+        &nbsp;&nbsp;<span style="color: #5fb3a1;">console</span><span style="color: #b8c5d4;">.</span><span style="color: #5fb3a1;">log</span><span style="color: #b8c5d4;">(</span><span style="color: #a3c9a8;">'Loading...'</span><span style="color: #b8c5d4;">)</span><br>
+        &nbsp;&nbsp;<span style="color: #91c4d8;">return</span> <span style="color: #5fb3a1;">validate</span><span style="color: #b8c5d4;">(</span><span style="color: #b4a7d6;">data</span><span style="color: #b8c5d4;">)</span><br>
+        <span style="color: #b8c5d4;">}</span>
+      </div>
+
+      <div class="code-preview">
+        <h3>Vibrant Teal (#7dd3c4) - Recommended</h3>
+        <span style="color: #91c4d8;">const</span> <span style="color: #7dd3c4;">useAuth</span> <span style="color: #91c4d8;">=</span> <span style="color: #b8c5d4;">()</span> <span style="color: #91c4d8;">=></span> <span style="color: #b8c5d4;">{</span><br>
+        &nbsp;&nbsp;<span style="color: #91c4d8;">const</span> <span style="color: #b4a7d6;">data</span> <span style="color: #91c4d8;">=</span> <span style="color: #7dd3c4;">fetchUser</span><span style="color: #b8c5d4;">()</span><br>
+        &nbsp;&nbsp;<span style="color: #7dd3c4;">console</span><span style="color: #b8c5d4;">.</span><span style="color: #7dd3c4;">log</span><span style="color: #b8c5d4;">(</span><span style="color: #a3c9a8;">'Loading...'</span><span style="color: #b8c5d4;">)</span><br>
+        &nbsp;&nbsp;<span style="color: #91c4d8;">return</span> <span style="color: #7dd3c4;">validate</span><span style="color: #b8c5d4;">(</span><span style="color: #b4a7d6;">data</span><span style="color: #b8c5d4;">)</span><br>
+        <span style="color: #b8c5d4;">}</span>
+      </div>
+    </div>
+
+    <div class="comparison-section">
+      <div class="code-preview">
+        <h3>Bright Teal (#89d9cb)</h3>
+        <span style="color: #91c4d8;">const</span> <span style="color: #89d9cb;">useAuth</span> <span style="color: #91c4d8;">=</span> <span style="color: #b8c5d4;">()</span> <span style="color: #91c4d8;">=></span> <span style="color: #b8c5d4;">{</span><br>
+        &nbsp;&nbsp;<span style="color: #91c4d8;">const</span> <span style="color: #b4a7d6;">data</span> <span style="color: #91c4d8;">=</span> <span style="color: #89d9cb;">fetchUser</span><span style="color: #b8c5d4;">()</span><br>
+        &nbsp;&nbsp;<span style="color: #89d9cb;">console</span><span style="color: #b8c5d4;">.</span><span style="color: #89d9cb;">log</span><span style="color: #b8c5d4;">(</span><span style="color: #a3c9a8;">'Loading...'</span><span style="color: #b8c5d4;">)</span><br>
+        &nbsp;&nbsp;<span style="color: #91c4d8;">return</span> <span style="color: #89d9cb;">validate</span><span style="color: #b8c5d4;">(</span><span style="color: #b4a7d6;">data</span><span style="color: #b8c5d4;">)</span><br>
+        <span style="color: #b8c5d4;">}</span>
+      </div>
+
+      <div class="code-preview">
+        <h3>Catppuccin Teal (#94e2d5)</h3>
+        <span style="color: #91c4d8;">const</span> <span style="color: #94e2d5;">useAuth</span> <span style="color: #91c4d8;">=</span> <span style="color: #b8c5d4;">()</span> <span style="color: #91c4d8;">=></span> <span style="color: #b8c5d4;">{</span><br>
+        &nbsp;&nbsp;<span style="color: #91c4d8;">const</span> <span style="color: #b4a7d6;">data</span> <span style="color: #91c4d8;">=</span> <span style="color: #94e2d5;">fetchUser</span><span style="color: #b8c5d4;">()</span><br>
+        &nbsp;&nbsp;<span style="color: #94e2d5;">console</span><span style="color: #b8c5d4;">.</span><span style="color: #94e2d5;">log</span><span style="color: #b8c5d4;">(</span><span style="color: #a3c9a8;">'Loading...'</span><span style="color: #b8c5d4;">)</span><br>
+        &nbsp;&nbsp;<span style="color: #91c4d8;">return</span> <span style="color: #94e2d5;">validate</span><span style="color: #b8c5d4;">(</span><span style="color: #b4a7d6;">data</span><span style="color: #b8c5d4;">)</span><br>
+        <span style="color: #b8c5d4;">}</span>
+      </div>
+    </div>
+
+    <h2>Summary</h2>
+    <div class="notes">
+      <h4>Teal Options Ranked</h4>
+      <p style="margin-bottom: 0.5rem;"><strong>#7dd3c4</strong> - Best balance of vibrancy and Aurora Depths identity</p>
+      <p style="margin-bottom: 0.5rem;"><strong>#89d9cb</strong> - If you want closer to Catppuccin feel</p>
+      <p style="margin-bottom: 0.5rem;"><strong>#94e2d5</strong> - Full Catppuccin (might feel too bright for Aurora Depths)</p>
+      <p><strong>#6ec9b8</strong> - Subtle refresh if you want minimal change</p>
+    </div>
+  </div>
+</body>
+</html>

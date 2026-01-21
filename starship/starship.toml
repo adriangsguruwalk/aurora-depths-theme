@@ -1,6 +1,6 @@
 # ──────────────────────────────────────────────────────────────────────────────
-# Aurora Depths Theme for Starship Prompt
-# A Poimandres x Nord inspired theme with WCAG AA accessibility
+# Aurora Depths Theme for Starship Prompt - 2026 Edition
+# Digital Hygge meets modern pastels with vibrant teal
 # ──────────────────────────────────────────────────────────────────────────────
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -21,16 +21,25 @@ fg1 = "#b8c5d4"
 fg2 = "#8a95a6"
 fg3 = "#6a7586"
 
-# Accent colors
-blue = "#8fc6d9"
-cyan = "#7fccbf"
-teal = "#5fb3a1"
-green = "#9dc08b"
-yellow = "#e6c783"
-orange = "#d4927a"
-pink = "#c78db0"
-red = "#c76b75"
-purple = "#a699c9"
+# Accent colors - 2026 Edition
+blue = "#91c4d8"       # Soft Sky - keywords
+teal = "#7dd3c4"       # Vibrant Teal - functions, primary
+mauve = "#d4a5c9"      # Mauve - types (2026 trend)
+sage = "#a3c9a8"       # Sage - strings
+mint = "#8fcf9a"       # Mint - success
+yellow = "#e6c783"     # Yellow - warnings
+peach = "#e0a88c"      # Peach - numbers
+rose = "#c9a0b8"       # Rose - imports
+coral = "#d4878f"      # Coral - errors
+lavender = "#b4a7d6"   # Lavender - variables
+
+# Legacy aliases
+cyan = "#a3c9a8"
+green = "#8fcf9a"
+orange = "#e0a88c"
+pink = "#c9a0b8"
+red = "#d4878f"
+purple = "#b4a7d6"
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Prompt format
@@ -60,12 +69,12 @@ truncation_length = 3
 truncate_to_repo = true
 format = "[$path]($style)[$read_only]($read_only_style) "
 read_only = " 󰌾"
-read_only_style = "red"
+read_only_style = "coral"
 
 [character]
 success_symbol = "[❯](teal)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+error_symbol = "[❯](coral)"
+vimcmd_symbol = "[❮](mint)"
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Git modules
@@ -77,8 +86,8 @@ style = "fg3"
 symbol = " "
 
 [git_status]
-format = "[[($conflicted$untracked$modified$staged$renamed$deleted)](pink) ($ahead_behind$stashed)]($style)"
-style = "cyan"
+format = "[[($conflicted$untracked$modified$staged$renamed$deleted)](rose) ($ahead_behind$stashed)]($style)"
+style = "sage"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -113,7 +122,7 @@ detect_files = []
 
 [nodejs]
 format = "[$symbol($version)]($style) "
-style = "green"
+style = "mint"
 symbol = " "
 detect_extensions = ["js", "mjs", "cjs", "ts", "tsx"]
 detect_files = ["package.json", ".node-version"]
@@ -121,22 +130,22 @@ detect_folders = ["node_modules"]
 
 [rust]
 format = "[$symbol($version)]($style) "
-style = "orange"
+style = "peach"
 symbol = " "
 
 [golang]
 format = "[$symbol($version)]($style) "
-style = "cyan"
+style = "sage"
 symbol = " "
 
 [ruby]
 format = "[$symbol($version)]($style) "
-style = "red"
+style = "coral"
 symbol = " "
 
 [java]
 format = "[$symbol($version)]($style) "
-style = "orange"
+style = "peach"
 symbol = " "
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -151,7 +160,7 @@ show_milliseconds = false
 
 [jobs]
 format = "[$symbol$number]($style) "
-style = "purple"
+style = "lavender"
 symbol = "✦ "
 threshold = 1
 
@@ -163,7 +172,7 @@ discharging_symbol = "󰂃 "
 
 [[battery.display]]
 threshold = 20
-style = "red"
+style = "coral"
 
 [[battery.display]]
 threshold = 50
@@ -171,7 +180,7 @@ style = "yellow"
 
 [[battery.display]]
 threshold = 100
-style = "green"
+style = "mint"
 
 [time]
 format = "[$time]($style) "
@@ -182,7 +191,7 @@ time_format = "%H:%M"
 [username]
 format = "[$user]($style) "
 style_user = "teal"
-style_root = "red"
+style_root = "coral"
 show_always = false
 
 [hostname]

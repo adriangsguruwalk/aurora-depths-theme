@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Depths 2026 Edition - Proposal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #1a1d26;
+      color: #e5eaf2;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #5fb3a1, #d4a5c9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: #b8c5d4;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      color: #5fb3a1;
+      font-size: 1.5rem;
+      margin: 2.5rem 0 1rem;
+      font-weight: 500;
+    }
+
+    h3 {
+      color: #b8c5d4;
+      font-size: 1.1rem;
+      margin: 1.5rem 0 0.75rem;
+      font-weight: 500;
+    }
+
+    .trends-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .trend-card {
+      background: #252936;
+      border-radius: 12px;
+      padding: 1.25rem;
+      border: 1px solid #3a3f4f;
+    }
+
+    .trend-card h4 {
+      color: #5fb3a1;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .trend-card p {
+      color: #b8c5d4;
+      font-size: 0.875rem;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .palette-section {
+      background: #252936;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid #3a3f4f;
+    }
+
+    .palette-section h3 {
+      margin-top: 0;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #3a3f4f;
+    }
+
+    .color-row {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #2e3340;
+    }
+
+    .color-row:last-child {
+      border-bottom: none;
+    }
+
+    .color-swatch-small {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .color-info-row {
+      flex: 1;
+    }
+
+    .color-name-small {
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    .color-hex-small {
+      color: #8a95a6;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+    }
+
+    .color-usage {
+      color: #6a7586;
+      font-size: 0.75rem;
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .code-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .code-comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .code-block {
+      background: #1a1d26;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #3a3f4f;
+    }
+
+    .code-header {
+      background: #2e3340;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      color: #b8c5d4;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .code-header .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .code-content {
+      padding: 1.25rem;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 0.8rem;
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      margin-left: 0.5rem;
+    }
+
+    .badge-new {
+      background: #5fb3a1;
+      color: #1a1d26;
+    }
+
+    .badge-current {
+      background: #3a3f4f;
+      color: #b8c5d4;
+    }
+
+    .changes-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    .changes-table th,
+    .changes-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #3a3f4f;
+    }
+
+    .changes-table th {
+      background: #2e3340;
+      color: #b8c5d4;
+      font-weight: 500;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .changes-table td {
+      font-size: 0.875rem;
+    }
+
+    .color-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .color-chip .swatch {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+    }
+
+    .arrow {
+      color: #5fb3a1;
+      margin: 0 0.5rem;
+    }
+
+    .rationale {
+      color: #8a95a6;
+      font-size: 0.8rem;
+    }
+
+    .summary-box {
+      background: linear-gradient(135deg, rgba(95, 179, 161, 0.1), rgba(212, 165, 201, 0.1));
+      border: 1px solid #3a3f4f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .summary-box h3 {
+      margin-top: 0;
+      color: #e5eaf2;
+    }
+
+    .summary-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .summary-box li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #b8c5d4;
+    }
+
+    .summary-box li::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: #5fb3a1;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #3a3f4f;
+      text-align: center;
+      color: #8a95a6;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Aurora Depths 2026 Edition</h1>
+    <p class="subtitle">A modernized palette embracing Digital Hygge, pastel warmth, and the Transformative Teal trend</p>
+
+    <h2>2026 Design Principles Applied</h2>
+    <div class="trends-grid">
+      <div class="trend-card">
+        <h4>Digital Hygge</h4>
+        <p>Warm, cozy pastels that feel comfortable for long coding sessions. Softer contrast, inviting atmosphere.</p>
+      </div>
+      <div class="trend-card">
+        <h4>Transformative Teal</h4>
+        <p>WGSN's 2026 Color of the Year. Represents change, resilience, and an Earth-first mindset. Already our primary accent!</p>
+      </div>
+      <div class="trend-card">
+        <h4>Mauve for Types</h4>
+        <p>Pink/mauve replacing yellow for types is THE modern trend. Seen in Catppuccin, Houston, and other 2026 favorites.</p>
+      </div>
+      <div class="trend-card">
+        <h4>Nature-Inspired</h4>
+        <p>Sage greens, warm peaches, and organic tones. Reduced blue light for eye comfort during late-night sessions.</p>
+      </div>
+    </div>
+
+    <h2>Color Distribution Changes</h2>
+    <div class="summary-box">
+      <h3>Key Changes Summary</h3>
+      <ul>
+        <li><strong>Types:</strong> Yellow → Mauve (the biggest 2026 shift)</li>
+        <li><strong>Strings:</strong> Cyan → Sage Green (warmer, nature-inspired)</li>
+        <li><strong>Functions:</strong> Keep Teal (it's THE 2026 color!)</li>
+        <li><strong>Numbers:</strong> Orange → Peach (softer, warmer)</li>
+        <li><strong>Keywords:</strong> Blue → Soft Sky (slightly warmer)</li>
+        <li><strong>Overall:</strong> More pastel, cozy "coffee shop" vibe</li>
+      </ul>
+    </div>
+
+    <table class="changes-table">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Current</th>
+          <th></th>
+          <th>2026 Proposal</th>
+          <th>Rationale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Keywords</strong></td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #8fc6d9;"></span>
+              #8fc6d9
+            </span>
+          </td>
+          <td class="arrow">→</td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #91c4d8;"></span>
+              #91c4d8
+            </span>
+          </td>
+          <td class="rationale">Slightly warmer, softer sky blue</td>
+        </tr>
+        <tr>
+          <td><strong>Functions</strong></td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #5fb3a1;"></span>
+              #5fb3a1
+            </span>
+          </td>
+          <td class="arrow">→</td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #5fb3a1;"></span>
+              #5fb3a1
+            </span>
+          </td>
+          <td class="rationale">Keep! Teal is 2026's hero color</td>
+        </tr>
+        <tr>
+          <td><strong>Types/Classes</strong></td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #e6c783;"></span>
+              #e6c783
+            </span>
+          </td>
+          <td class="arrow">→</td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #d4a5c9;"></span>
+              #d4a5c9
+            </span>
+          </td>
+          <td class="rationale">Mauve - THE 2026 trend for types</td>
+        </tr>
+        <tr>
+          <td><strong>Strings</strong></td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #7fccbf;"></span>
+              #7fccbf
+            </span>
+          </td>
+          <td class="arrow">→</td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #a3c9a8;"></span>
+              #a3c9a8
+            </span>
+          </td>
+          <td class="rationale">Sage green - warm, nature-inspired</td>
+        </tr>
+        <tr>
+          <td><strong>Numbers</strong></td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #d4927a;"></span>
+              #d4927a
+            </span>
+          </td>
+          <td class="arrow">→</td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #e0a88c;"></span>
+              #e0a88c
+            </span>
+          </td>
+          <td class="rationale">Softer peach - cozy warmth</td>
+        </tr>
+        <tr>
+          <td><strong>Variables</strong></td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #a699c9;"></span>
+              #a699c9
+            </span>
+          </td>
+          <td class="arrow">→</td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #b4a7d6;"></span>
+              #b4a7d6
+            </span>
+          </td>
+          <td class="rationale">Softer lavender - pastel trend</td>
+        </tr>
+        <tr>
+          <td><strong>Imports/Special</strong></td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #c78db0;"></span>
+              #c78db0
+            </span>
+          </td>
+          <td class="arrow">→</td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #c9a0b8;"></span>
+              #c9a0b8
+            </span>
+          </td>
+          <td class="rationale">Rose - softer, dusty pink</td>
+        </tr>
+        <tr>
+          <td><strong>Errors</strong></td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #c76b75;"></span>
+              #c76b75
+            </span>
+          </td>
+          <td class="arrow">→</td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #d4878f;"></span>
+              #d4878f
+            </span>
+          </td>
+          <td class="rationale">Coral - less harsh, still clear</td>
+        </tr>
+        <tr>
+          <td><strong>Success/Booleans</strong></td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #9dc08b;"></span>
+              #9dc08b
+            </span>
+          </td>
+          <td class="arrow">→</td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #8fcf9a;"></span>
+              #8fcf9a
+            </span>
+          </td>
+          <td class="rationale">Mint - fresh, slightly cooler</td>
+        </tr>
+        <tr>
+          <td><strong>Warnings</strong></td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #e6c783;"></span>
+              #e6c783
+            </span>
+          </td>
+          <td class="arrow">→</td>
+          <td>
+            <span class="color-chip">
+              <span class="swatch" style="background: #e6c783;"></span>
+              #e6c783
+            </span>
+          </td>
+          <td class="rationale">Keep yellow for warnings (semantic)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Code Preview Comparison</h2>
+    <div class="code-comparison">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="dot" style="background: #c76b75;"></span>
+          <span class="dot" style="background: #e6c783;"></span>
+          <span class="dot" style="background: #9dc08b;"></span>
+          Current Aurora Depths
+          <span class="badge badge-current">Original</span>
+        </div>
+        <div class="code-content">
+          <span style="color: #c78db0;">import</span> <span style="color: #e5eaf2;">{</span> <span style="color: #5fb3a1;">useState</span><span style="color: #e5eaf2;">,</span> <span style="color: #5fb3a1;">useEffect</span> <span style="color: #e5eaf2;">}</span> <span style="color: #c78db0;">from</span> <span style="color: #7fccbf;">'react'</span><br><br>
+          <span style="color: #8a95a6; font-style: italic;">// User authentication hook</span><br>
+          <span style="color: #8fc6d9;">interface</span> <span style="color: #e6c783;">User</span> <span style="color: #b8c5d4;">{</span><br>
+          &nbsp;&nbsp;<span style="color: #e5eaf2;">id</span><span style="color: #b8c5d4;">:</span> <span style="color: #e6c783;">number</span><br>
+          &nbsp;&nbsp;<span style="color: #e5eaf2;">name</span><span style="color: #b8c5d4;">:</span> <span style="color: #e6c783;">string</span><br>
+          &nbsp;&nbsp;<span style="color: #e5eaf2;">isAdmin</span><span style="color: #b8c5d4;">:</span> <span style="color: #e6c783;">boolean</span><br>
+          <span style="color: #b8c5d4;">}</span><br><br>
+          <span style="color: #8fc6d9;">const</span> <span style="color: #5fb3a1;">useAuth</span> <span style="color: #8fc6d9;">=</span> <span style="color: #b8c5d4;">()</span><span style="color: #b8c5d4;">:</span> <span style="color: #e6c783;">User</span> <span style="color: #8fc6d9;">|</span> <span style="color: #e6c783;">null</span> <span style="color: #8fc6d9;">=></span> <span style="color: #b8c5d4;">{</span><br>
+          &nbsp;&nbsp;<span style="color: #8fc6d9;">const</span> <span style="color: #b8c5d4;">[</span><span style="color: #a699c9;">user</span><span style="color: #b8c5d4;">,</span> <span style="color: #5fb3a1;">setUser</span><span style="color: #b8c5d4;">]</span> <span style="color: #8fc6d9;">=</span> <span style="color: #5fb3a1;">useState</span><span style="color: #b8c5d4;"><</span><span style="color: #e6c783;">User</span> <span style="color: #8fc6d9;">|</span> <span style="color: #e6c783;">null</span><span style="color: #b8c5d4;">>(</span><span style="color: #e6c783;">null</span><span style="color: #b8c5d4;">)</span><br>
+          &nbsp;&nbsp;<span style="color: #8fc6d9;">const</span> <span style="color: #a699c9;">maxRetries</span> <span style="color: #8fc6d9;">=</span> <span style="color: #d4927a;">3</span><br><br>
+          &nbsp;&nbsp;<span style="color: #5fb3a1;">useEffect</span><span style="color: #b8c5d4;">(()</span> <span style="color: #8fc6d9;">=></span> <span style="color: #b8c5d4;">{</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8fc6d9;">if</span> <span style="color: #b8c5d4;">(</span><span style="color: #a699c9;">user</span><span style="color: #b8c5d4;">?.</span><span style="color: #e5eaf2;">isAdmin</span> <span style="color: #8fc6d9;">===</span> <span style="color: #9dc08b;">true</span><span style="color: #b8c5d4;">)</span> <span style="color: #b8c5d4;">{</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5fb3a1;">console</span><span style="color: #b8c5d4;">.</span><span style="color: #5fb3a1;">log</span><span style="color: #b8c5d4;">(</span><span style="color: #7fccbf;">'Admin access'</span><span style="color: #b8c5d4;">)</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #b8c5d4;">}</span><br>
+          &nbsp;&nbsp;<span style="color: #b8c5d4;">}, [</span><span style="color: #a699c9;">user</span><span style="color: #b8c5d4;">])</span><br><br>
+          &nbsp;&nbsp;<span style="color: #8fc6d9;">return</span> <span style="color: #a699c9;">user</span><br>
+          <span style="color: #b8c5d4;">}</span>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="dot" style="background: #d4878f;"></span>
+          <span class="dot" style="background: #e6c783;"></span>
+          <span class="dot" style="background: #8fcf9a;"></span>
+          Aurora Depths 2026
+          <span class="badge badge-new">Proposed</span>
+        </div>
+        <div class="code-content">
+          <span style="color: #c9a0b8;">import</span> <span style="color: #e5eaf2;">{</span> <span style="color: #5fb3a1;">useState</span><span style="color: #e5eaf2;">,</span> <span style="color: #5fb3a1;">useEffect</span> <span style="color: #e5eaf2;">}</span> <span style="color: #c9a0b8;">from</span> <span style="color: #a3c9a8;">'react'</span><br><br>
+          <span style="color: #8a95a6; font-style: italic;">// User authentication hook</span><br>
+          <span style="color: #91c4d8;">interface</span> <span style="color: #d4a5c9;">User</span> <span style="color: #b8c5d4;">{</span><br>
+          &nbsp;&nbsp;<span style="color: #e5eaf2;">id</span><span style="color: #b8c5d4;">:</span> <span style="color: #d4a5c9;">number</span><br>
+          &nbsp;&nbsp;<span style="color: #e5eaf2;">name</span><span style="color: #b8c5d4;">:</span> <span style="color: #d4a5c9;">string</span><br>
+          &nbsp;&nbsp;<span style="color: #e5eaf2;">isAdmin</span><span style="color: #b8c5d4;">:</span> <span style="color: #d4a5c9;">boolean</span><br>
+          <span style="color: #b8c5d4;">}</span><br><br>
+          <span style="color: #91c4d8;">const</span> <span style="color: #5fb3a1;">useAuth</span> <span style="color: #91c4d8;">=</span> <span style="color: #b8c5d4;">()</span><span style="color: #b8c5d4;">:</span> <span style="color: #d4a5c9;">User</span> <span style="color: #91c4d8;">|</span> <span style="color: #d4a5c9;">null</span> <span style="color: #91c4d8;">=></span> <span style="color: #b8c5d4;">{</span><br>
+          &nbsp;&nbsp;<span style="color: #91c4d8;">const</span> <span style="color: #b8c5d4;">[</span><span style="color: #b4a7d6;">user</span><span style="color: #b8c5d4;">,</span> <span style="color: #5fb3a1;">setUser</span><span style="color: #b8c5d4;">]</span> <span style="color: #91c4d8;">=</span> <span style="color: #5fb3a1;">useState</span><span style="color: #b8c5d4;"><</span><span style="color: #d4a5c9;">User</span> <span style="color: #91c4d8;">|</span> <span style="color: #d4a5c9;">null</span><span style="color: #b8c5d4;">>(</span><span style="color: #d4a5c9;">null</span><span style="color: #b8c5d4;">)</span><br>
+          &nbsp;&nbsp;<span style="color: #91c4d8;">const</span> <span style="color: #b4a7d6;">maxRetries</span> <span style="color: #91c4d8;">=</span> <span style="color: #e0a88c;">3</span><br><br>
+          &nbsp;&nbsp;<span style="color: #5fb3a1;">useEffect</span><span style="color: #b8c5d4;">(()</span> <span style="color: #91c4d8;">=></span> <span style="color: #b8c5d4;">{</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #91c4d8;">if</span> <span style="color: #b8c5d4;">(</span><span style="color: #b4a7d6;">user</span><span style="color: #b8c5d4;">?.</span><span style="color: #e5eaf2;">isAdmin</span> <span style="color: #91c4d8;">===</span> <span style="color: #8fcf9a;">true</span><span style="color: #b8c5d4;">)</span> <span style="color: #b8c5d4;">{</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5fb3a1;">console</span><span style="color: #b8c5d4;">.</span><span style="color: #5fb3a1;">log</span><span style="color: #b8c5d4;">(</span><span style="color: #a3c9a8;">'Admin access'</span><span style="color: #b8c5d4;">)</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #b8c5d4;">}</span><br>
+          &nbsp;&nbsp;<span style="color: #b8c5d4;">}, [</span><span style="color: #b4a7d6;">user</span><span style="color: #b8c5d4;">])</span><br><br>
+          &nbsp;&nbsp;<span style="color: #91c4d8;">return</span> <span style="color: #b4a7d6;">user</span><br>
+          <span style="color: #b8c5d4;">}</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>Proposed 2026 Palette</h2>
+    <div class="comparison">
+      <div class="palette-section">
+        <h3>Current Accent Colors</h3>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #8fc6d9;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Blue</div>
+            <div class="color-hex-small">#8fc6d9</div>
+          </div>
+          <div class="color-usage">Keywords</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #5fb3a1;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Teal</div>
+            <div class="color-hex-small">#5fb3a1</div>
+          </div>
+          <div class="color-usage">Functions</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #e6c783;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Yellow</div>
+            <div class="color-hex-small">#e6c783</div>
+          </div>
+          <div class="color-usage">Types</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #7fccbf;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Cyan</div>
+            <div class="color-hex-small">#7fccbf</div>
+          </div>
+          <div class="color-usage">Strings</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #d4927a;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Orange</div>
+            <div class="color-hex-small">#d4927a</div>
+          </div>
+          <div class="color-usage">Numbers</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #a699c9;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Purple</div>
+            <div class="color-hex-small">#a699c9</div>
+          </div>
+          <div class="color-usage">Variables</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #c78db0;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Pink</div>
+            <div class="color-hex-small">#c78db0</div>
+          </div>
+          <div class="color-usage">Special</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #9dc08b;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Green</div>
+            <div class="color-hex-small">#9dc08b</div>
+          </div>
+          <div class="color-usage">Booleans</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #c76b75;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Red</div>
+            <div class="color-hex-small">#c76b75</div>
+          </div>
+          <div class="color-usage">Errors</div>
+        </div>
+      </div>
+
+      <div class="palette-section">
+        <h3>2026 Edition Palette <span class="badge badge-new">New</span></h3>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #91c4d8;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Soft Sky</div>
+            <div class="color-hex-small">#91c4d8</div>
+          </div>
+          <div class="color-usage">Keywords</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #5fb3a1;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Teal</div>
+            <div class="color-hex-small">#5fb3a1</div>
+          </div>
+          <div class="color-usage">Functions</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #d4a5c9;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Mauve</div>
+            <div class="color-hex-small">#d4a5c9</div>
+          </div>
+          <div class="color-usage">Types</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #a3c9a8;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Sage</div>
+            <div class="color-hex-small">#a3c9a8</div>
+          </div>
+          <div class="color-usage">Strings</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #e0a88c;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Peach</div>
+            <div class="color-hex-small">#e0a88c</div>
+          </div>
+          <div class="color-usage">Numbers</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #b4a7d6;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Lavender</div>
+            <div class="color-hex-small">#b4a7d6</div>
+          </div>
+          <div class="color-usage">Variables</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #c9a0b8;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Rose</div>
+            <div class="color-hex-small">#c9a0b8</div>
+          </div>
+          <div class="color-usage">Imports</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #8fcf9a;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Mint</div>
+            <div class="color-hex-small">#8fcf9a</div>
+          </div>
+          <div class="color-usage">Booleans</div>
+        </div>
+        <div class="color-row">
+          <div class="color-swatch-small" style="background: #d4878f;"></div>
+          <div class="color-info-row">
+            <div class="color-name-small">Coral</div>
+            <div class="color-hex-small">#d4878f</div>
+          </div>
+          <div class="color-usage">Errors</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Visual Vibe Check</h2>
+    <div class="trends-grid">
+      <div class="trend-card">
+        <h4>Before: Cool & Technical</h4>
+        <p>Yellow types, cyan strings, and cooler tones give a more traditional "programmer" aesthetic.</p>
+      </div>
+      <div class="trend-card">
+        <h4>After: Warm & Cozy</h4>
+        <p>Mauve types, sage strings, and pastel accents create a modern "coffee shop coding" vibe.</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>Aurora Depths 2026 Edition Proposal</p>
+      <p style="margin-top: 0.5rem; color: #6a7586;">Open preview-2026-proposal.html in your browser to review</p>
+    </footer>
+  </div>
+</body>
+</html>

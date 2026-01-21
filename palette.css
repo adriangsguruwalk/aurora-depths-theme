@@ -1,6 +1,6 @@
 /**
- * Aurora Depths - CSS Color Variables
- * A Poimandres x Nord inspired palette following Material Design 3 principles
+ * Aurora Depths 2026 Edition - CSS Color Variables
+ * A modern, cozy palette embracing Digital Hygge and pastel warmth
  *
  * Usage: Import this file and use CSS variables like var(--ad-bg0)
  */
@@ -19,22 +19,30 @@
   --ad-fg2: #8a95a6;      /* Muted text, placeholders - 5:1 contrast */
   --ad-fg3: #6a7586;      /* Disabled, hints - 3.5:1 contrast */
 
-  /* === Accent Colors (All maintain 4.5:1+ contrast on bg0) === */
-  --ad-blue: #8fc6d9;     /* Functions, methods, actions */
-  --ad-deep-blue: #6a9cb8; /* Keywords, operators (Nord-inspired) */
-  --ad-cyan: #7fccbf;     /* Strings, literals */
-  --ad-teal: #5fb3a1;     /* Primary accent, links */
-  --ad-green: #9dc08b;    /* Success, additions, positive states */
-  --ad-yellow: #e6c783;   /* Warnings, cautions */
-  --ad-orange: #d4927a;   /* Numbers, constants */
-  --ad-pink: #e48ebb;     /* Types, classes, interfaces (Poimandres-inspired) */
-  --ad-red: #c76b75;      /* Errors, deletions, negative states */
-  --ad-purple: #a699c9;   /* Variables, parameters, accents */
+  /* === Accent Colors - 2026 Edition (All maintain 4.5:1+ contrast on bg0) === */
+  --ad-blue: #91c4d8;     /* Soft Sky - keywords, operators, links */
+  --ad-teal: #7dd3c4;     /* Vibrant Teal - functions, methods, primary accent */
+  --ad-mauve: #d4a5c9;    /* Mauve - types, classes (2026 trend) */
+  --ad-sage: #a3c9a8;     /* Sage - strings, literals (nature-inspired) */
+  --ad-mint: #8fcf9a;     /* Mint - success, booleans, additions */
+  --ad-yellow: #e6c783;   /* Yellow - warnings, cautions */
+  --ad-peach: #e0a88c;    /* Peach - numbers, constants */
+  --ad-rose: #c9a0b8;     /* Rose - imports, special keywords */
+  --ad-coral: #d4878f;    /* Coral - errors, deletions */
+  --ad-lavender: #b4a7d6; /* Lavender - variables, parameters */
+
+  /* === Legacy aliases (for backwards compatibility) === */
+  --ad-cyan: var(--ad-sage);
+  --ad-green: var(--ad-mint);
+  --ad-orange: var(--ad-peach);
+  --ad-pink: var(--ad-rose);
+  --ad-red: var(--ad-coral);
+  --ad-purple: var(--ad-lavender);
 
   /* === Semantic Colors === */
-  --ad-error: var(--ad-red);
+  --ad-error: var(--ad-coral);
   --ad-warning: var(--ad-yellow);
-  --ad-success: var(--ad-green);
+  --ad-success: var(--ad-mint);
   --ad-info: var(--ad-blue);
   --ad-link: var(--ad-blue);
   --ad-primary: var(--ad-teal);
@@ -45,28 +53,28 @@
   --ad-surface-scrim: rgba(26, 29, 38, 0.6);
 
   /* === Diff colors with subtle backgrounds === */
-  --ad-diff-add-bg: #2a3325;
+  --ad-diff-add-bg: #2a3328;
   --ad-diff-change-bg: #3a3525;
-  --ad-diff-delete-bg: #352530;
-  --ad-diff-add-fg: var(--ad-green);
+  --ad-diff-delete-bg: #352832;
+  --ad-diff-add-fg: var(--ad-mint);
   --ad-diff-change-fg: var(--ad-yellow);
-  --ad-diff-delete-fg: var(--ad-red);
+  --ad-diff-delete-fg: var(--ad-coral);
 
   /* === Diagnostic backgrounds === */
-  --ad-diagnostic-error-bg: #352530;
+  --ad-diagnostic-error-bg: #352832;
   --ad-diagnostic-warn-bg: #3a3525;
   --ad-diagnostic-info-bg: #253545;
-  --ad-diagnostic-hint-bg: #253530;
-  --ad-diagnostic-success-bg: #2a3325;
+  --ad-diagnostic-hint-bg: #253835;
+  --ad-diagnostic-success-bg: #2a3328;
 
   /* === Bright variants (for terminal) === */
   --ad-bright-black: #3a3f4f;
-  --ad-bright-red: #d4858d;
-  --ad-bright-green: #b3d0a3;
+  --ad-bright-red: #e09ea5;
+  --ad-bright-green: #a8e0b2;
   --ad-bright-yellow: #f0d99b;
-  --ad-bright-blue: #a5d4e8;
-  --ad-bright-magenta: #d9a5c4;
-  --ad-bright-cyan: #9adbd0;
+  --ad-bright-blue: #a8d4e8;
+  --ad-bright-magenta: #e0b8d4;
+  --ad-bright-cyan: #9ae8dc;
   --ad-bright-white: var(--ad-fg0);
 }
 
@@ -92,11 +100,20 @@
 
 /* === Utility classes for accents === */
 .ad-text-blue { color: var(--ad-blue); }
-.ad-text-cyan { color: var(--ad-cyan); }
 .ad-text-teal { color: var(--ad-teal); }
-.ad-text-green { color: var(--ad-green); }
+.ad-text-mauve { color: var(--ad-mauve); }
+.ad-text-sage { color: var(--ad-sage); }
+.ad-text-mint { color: var(--ad-mint); }
 .ad-text-yellow { color: var(--ad-yellow); }
-.ad-text-orange { color: var(--ad-orange); }
-.ad-text-pink { color: var(--ad-pink); }
-.ad-text-red { color: var(--ad-red); }
-.ad-text-purple { color: var(--ad-purple); }
+.ad-text-peach { color: var(--ad-peach); }
+.ad-text-rose { color: var(--ad-rose); }
+.ad-text-coral { color: var(--ad-coral); }
+.ad-text-lavender { color: var(--ad-lavender); }
+
+/* === Legacy utility classes === */
+.ad-text-cyan { color: var(--ad-sage); }
+.ad-text-green { color: var(--ad-mint); }
+.ad-text-orange { color: var(--ad-peach); }
+.ad-text-pink { color: var(--ad-rose); }
+.ad-text-red { color: var(--ad-coral); }
+.ad-text-purple { color: var(--ad-lavender); }
