@@ -20,13 +20,14 @@
   --ad-fg3: #6a7586;      /* Disabled, hints - 3.5:1 contrast */
 
   /* === Accent Colors (All maintain 4.5:1+ contrast on bg0) === */
-  --ad-blue: #8fc6d9;     /* Keywords, operators, links */
+  --ad-blue: #8fc6d9;     /* Functions, methods, actions */
+  --ad-deep-blue: #6a9cb8; /* Keywords, operators (Nord-inspired) */
   --ad-cyan: #7fccbf;     /* Strings, literals */
-  --ad-teal: #5fb3a1;     /* Functions, methods, primary accent */
+  --ad-teal: #5fb3a1;     /* Primary accent, links */
   --ad-green: #9dc08b;    /* Success, additions, positive states */
-  --ad-yellow: #e6c783;   /* Warnings, classes, cautions */
+  --ad-yellow: #e6c783;   /* Warnings, cautions */
   --ad-orange: #d4927a;   /* Numbers, constants */
-  --ad-pink: #c78db0;     /* Special keywords, regex */
+  --ad-pink: #e48ebb;     /* Types, classes, interfaces (Poimandres-inspired) */
   --ad-red: #c76b75;      /* Errors, deletions, negative states */
   --ad-purple: #a699c9;   /* Variables, parameters, accents */
 

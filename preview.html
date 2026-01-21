@@ -386,10 +386,24 @@
     <h2>Accent Colors</h2>
     <div class="color-grid">
       <div class="color-card">
+        <div class="color-swatch" style="background: var(--ad-deep-blue); color: var(--ad-bg0);">Deep Blue</div>
+        <div class="color-info">
+          <div class="color-name">Keywords, Operators</div>
+          <div class="color-hex">#6a9cb8</div>
+        </div>
+      </div>
+      <div class="color-card">
         <div class="color-swatch" style="background: var(--ad-blue); color: var(--ad-bg0);">Blue</div>
         <div class="color-info">
-          <div class="color-name">Keywords, Links</div>
+          <div class="color-name">Functions, Methods</div>
           <div class="color-hex">#8fc6d9</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--ad-pink); color: var(--ad-bg0);">Pink</div>
+        <div class="color-info">
+          <div class="color-name">Types, Classes</div>
+          <div class="color-hex">#e48ebb</div>
         </div>
       </div>
       <div class="color-card">
@@ -402,36 +416,36 @@
       <div class="color-card">
         <div class="color-swatch" style="background: var(--ad-teal); color: var(--ad-bg0);">Teal</div>
         <div class="color-info">
-          <div class="color-name">Functions, Primary</div>
+          <div class="color-name">Primary Accent</div>
           <div class="color-hex">#5fb3a1</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--ad-purple); color: var(--ad-bg0);">Purple</div>
+        <div class="color-info">
+          <div class="color-name">Decorators, Attrs</div>
+          <div class="color-hex">#a699c9</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--ad-orange); color: var(--ad-bg0);">Orange</div>
+        <div class="color-info">
+          <div class="color-name">Numbers, Constants</div>
+          <div class="color-hex">#d4927a</div>
         </div>
       </div>
       <div class="color-card">
         <div class="color-swatch" style="background: var(--ad-green); color: var(--ad-bg0);">Green</div>
         <div class="color-info">
-          <div class="color-name">Success</div>
+          <div class="color-name">Booleans, Success</div>
           <div class="color-hex">#9dc08b</div>
         </div>
       </div>
       <div class="color-card">
         <div class="color-swatch" style="background: var(--ad-yellow); color: var(--ad-bg0);">Yellow</div>
         <div class="color-info">
-          <div class="color-name">Warnings, Classes</div>
+          <div class="color-name">Warnings</div>
           <div class="color-hex">#e6c783</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: var(--ad-orange); color: var(--ad-bg0);">Orange</div>
-        <div class="color-info">
-          <div class="color-name">Numbers</div>
-          <div class="color-hex">#d4927a</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: var(--ad-pink); color: var(--ad-bg0);">Pink</div>
-        <div class="color-info">
-          <div class="color-name">Special, Regex</div>
-          <div class="color-hex">#c78db0</div>
         </div>
       </div>
       <div class="color-card">
@@ -439,13 +453,6 @@
         <div class="color-info">
           <div class="color-name">Errors</div>
           <div class="color-hex">#c76b75</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: var(--ad-purple); color: var(--ad-bg0);">Purple</div>
-        <div class="color-info">
-          <div class="color-name">Variables</div>
-          <div class="color-hex">#a699c9</div>
         </div>
       </div>
     </div>
@@ -472,14 +479,17 @@
 
     <h2>Code Preview</h2>
     <div class="code-preview">
-      <span style="color: var(--ad-pink);">import</span> <span style="color: var(--ad-fg0);">{</span> <span style="color: var(--ad-fg0);">useState</span> <span style="color: var(--ad-fg0);">}</span> <span style="color: var(--ad-pink);">from</span> <span style="color: var(--ad-cyan);">'react'</span><br><br>
+      <span style="color: var(--ad-pink);">import</span> <span style="color: var(--ad-fg0);">{</span> <span style="color: var(--ad-blue);">useState</span> <span style="color: var(--ad-fg0);">}</span> <span style="color: var(--ad-pink);">from</span> <span style="color: var(--ad-cyan);">'react'</span><br><br>
       <span style="color: var(--ad-fg2); font-style: italic;">// A simple counter component</span><br>
-      <span style="color: var(--ad-blue);">const</span> <span style="color: var(--ad-teal);">Counter</span> <span style="color: var(--ad-blue);">=</span> <span style="color: var(--ad-fg1);">()</span> <span style="color: var(--ad-blue);">=></span> <span style="color: var(--ad-fg1);">{</span><br>
-      &nbsp;&nbsp;<span style="color: var(--ad-blue);">const</span> <span style="color: var(--ad-fg1);">[</span><span style="color: var(--ad-fg0);">count</span><span style="color: var(--ad-fg1);">,</span> <span style="color: var(--ad-teal);">setCount</span><span style="color: var(--ad-fg1);">]</span> <span style="color: var(--ad-blue);">=</span> <span style="color: var(--ad-teal);">useState</span><span style="color: var(--ad-fg1);">(</span><span style="color: var(--ad-orange);">0</span><span style="color: var(--ad-fg1);">)</span><br><br>
-      &nbsp;&nbsp;<span style="color: var(--ad-blue);">return</span> <span style="color: var(--ad-fg1);">(</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: var(--ad-blue);">&lt;</span><span style="color: var(--ad-blue);">button</span> <span style="color: var(--ad-purple);">onClick</span><span style="color: var(--ad-blue);">=</span><span style="color: var(--ad-fg1);">{()</span> <span style="color: var(--ad-blue);">=></span> <span style="color: var(--ad-teal);">setCount</span><span style="color: var(--ad-fg1);">(</span><span style="color: var(--ad-fg0);">count</span> <span style="color: var(--ad-blue);">+</span> <span style="color: var(--ad-orange);">1</span><span style="color: var(--ad-fg1);">)}</span><span style="color: var(--ad-blue);">&gt;</span><br>
+      <span style="color: var(--ad-deep-blue);">interface</span> <span style="color: var(--ad-pink);">CounterProps</span> <span style="color: var(--ad-fg1);">{</span><br>
+      &nbsp;&nbsp;<span style="color: var(--ad-fg0);">initialValue</span><span style="color: var(--ad-fg1);">:</span> <span style="color: var(--ad-pink);">number</span><span style="color: var(--ad-fg1);">;</span><br>
+      <span style="color: var(--ad-fg1);">}</span><br><br>
+      <span style="color: var(--ad-deep-blue);">const</span> <span style="color: var(--ad-blue);">Counter</span><span style="color: var(--ad-fg1);">:</span> <span style="color: var(--ad-pink);">React.FC</span><span style="color: var(--ad-fg1);">&lt;</span><span style="color: var(--ad-pink);">CounterProps</span><span style="color: var(--ad-fg1);">&gt;</span> <span style="color: var(--ad-deep-blue);">=</span> <span style="color: var(--ad-fg1);">(</span><span style="color: var(--ad-fg0);">{ initialValue }</span><span style="color: var(--ad-fg1);">)</span> <span style="color: var(--ad-deep-blue);">=></span> <span style="color: var(--ad-fg1);">{</span><br>
+      &nbsp;&nbsp;<span style="color: var(--ad-deep-blue);">const</span> <span style="color: var(--ad-fg1);">[</span><span style="color: var(--ad-fg0);">count</span><span style="color: var(--ad-fg1);">,</span> <span style="color: var(--ad-blue);">setCount</span><span style="color: var(--ad-fg1);">]</span> <span style="color: var(--ad-deep-blue);">=</span> <span style="color: var(--ad-blue);">useState</span><span style="color: var(--ad-fg1);">(</span><span style="color: var(--ad-fg0);">initialValue</span><span style="color: var(--ad-fg1);">)</span><br><br>
+      &nbsp;&nbsp;<span style="color: var(--ad-deep-blue);">return</span> <span style="color: var(--ad-fg1);">(</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: var(--ad-deep-blue);">&lt;</span><span style="color: var(--ad-deep-blue);">button</span> <span style="color: var(--ad-purple);">onClick</span><span style="color: var(--ad-deep-blue);">=</span><span style="color: var(--ad-fg1);">{()</span> <span style="color: var(--ad-deep-blue);">=></span> <span style="color: var(--ad-blue);">setCount</span><span style="color: var(--ad-fg1);">(</span><span style="color: var(--ad-fg0);">count</span> <span style="color: var(--ad-deep-blue);">+</span> <span style="color: var(--ad-orange);">1</span><span style="color: var(--ad-fg1);">)}</span><span style="color: var(--ad-deep-blue);">&gt;</span><br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count: <span style="color: var(--ad-fg1);">{</span><span style="color: var(--ad-fg0);">count</span><span style="color: var(--ad-fg1);">}</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: var(--ad-blue);">&lt;/</span><span style="color: var(--ad-blue);">button</span><span style="color: var(--ad-blue);">&gt;</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: var(--ad-deep-blue);">&lt;/</span><span style="color: var(--ad-deep-blue);">button</span><span style="color: var(--ad-deep-blue);">&gt;</span><br>
       &nbsp;&nbsp;<span style="color: var(--ad-fg1);">)</span><br>
       <span style="color: var(--ad-fg1);">}</span>
     </div>
