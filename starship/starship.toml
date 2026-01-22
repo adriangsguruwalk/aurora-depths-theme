@@ -27,7 +27,7 @@ fg3 = "#686480"
 
 # Primary Purple Family
 purple = "#c4b5f0"    # Functions, primary accent
-violet = "#a78bfa"    # Decorators, properties
+violet = "#c4a8ff"    # Decorators, properties (AAA)
 
 # Pink/Magenta Family - Keywords
 pink = "#f0a0c8"      # Keywords, operators
@@ -42,7 +42,7 @@ sage = "#a8d4a8"      # Strings
 mint = "#8ce0a0"      # Success, booleans
 yellow = "#e8d088"    # Warnings
 peach = "#e8a888"     # Numbers, constants
-coral = "#e88090"     # Errors
+coral = "#f0a0a8"     # Errors (AAA)
 sky = "#88c4f0"       # Variables
 rose = "#e0a8c0"      # Imports
 

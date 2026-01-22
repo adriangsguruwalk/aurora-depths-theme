@@ -5,6 +5,17 @@
 
 local M = {}
 
+-- ══════════════════════════════════════════════════════════════════════════════
+-- Configuration
+-- ══════════════════════════════════════════════════════════════════════════════
+
+M.config = {
+	transparent = false, -- Enable transparent background
+	transparent_float = false, -- Also make floating windows transparent
+	dim_inactive = false, -- Dim inactive windows
+	terminal_colors = true, -- Set terminal colors
+}
+
 -- Color Palette - Purple Edition
 M.colors = {
 	-- Background hierarchy (purple-tinted depth layers)
@@ -22,10 +33,12 @@ M.colors = {
 
 	-- Primary Purple Family (The Hero)
 	purple = "#c4b5f0", -- Functions, methods, primary accent
-	violet = "#a78bfa", -- Decorators, properties
+	-- purple = "#d4c8f8",
+	-- violet = "#a78bfa", -- Decorators, properties
+	violet = "#c4a8ff",
 
 	-- Pink/Magenta Family - Keywords
-	pink = "#f0a0c8",    -- Keywords, operators
+	pink = "#f0a0c8", -- Keywords, operators
 	magenta = "#e879a8", -- Control flow
 
 	-- Complementary - Types
@@ -33,19 +46,20 @@ M.colors = {
 	teal = "#5ccfb8", -- Type parameters
 
 	-- Supporting Accents
-	sage = "#a8d4a8",   -- Strings
-	mint = "#8ce0a0",   -- Success, booleans
+	sage = "#a8d4a8", -- Strings
+	mint = "#8ce0a0", -- Success, booleans
 	yellow = "#e8d088", -- Warnings
-	peach = "#e8a888",  -- Numbers, constants
-	coral = "#e88090",  -- Errors
-	sky = "#88c4f0",    -- Variables, parameters
-	rose = "#e0a8c0",   -- Imports
+	peach = "#e8a888", -- Numbers, constants
+	-- coral = "#e88090", -- Errors
+	coral = "#f0a0a8",
+	sky = "#88c4f0", -- Variables, parameters
+	rose = "#e0a8c0", -- Imports
 
 	-- Legacy aliases (for compatibility)
-	blue = "#f0a0c8",   -- Maps to pink (keywords)
-	green = "#8ce0a0",  -- Maps to mint
+	blue = "#f0a0c8", -- Maps to pink (keywords)
+	green = "#8ce0a0", -- Maps to mint
 	orange = "#e8a888", -- Maps to peach
-	red = "#e88090",    -- Maps to coral
+	red = "#e88090", -- Maps to coral
 	lavender = "#a78bfa", -- Maps to violet
 
 	-- Special colors
@@ -74,7 +88,30 @@ local function hi(group, opts)
 	vim.cmd(cmd)
 end
 
-function M.setup()
+-- ══════════════════════════════════════════════════════════════════════════════
+-- Setup function with optional configuration
+-- ══════════════════════════════════════════════════════════════════════════════
+-- Usage:
+--   require('aurora-depths').setup()                    -- Default settings
+--   require('aurora-depths').setup({ transparent = true })  -- Transparent bg
+--
+function M.setup(opts)
+	-- Merge user config with defaults
+	opts = opts or {}
+	for k, v in pairs(opts) do
+		if M.config[k] ~= nil then
+			M.config[k] = v
+		end
+	end
+
+	local config = M.config
+
+	-- Determine background colors based on transparency setting
+	local bg_main = config.transparent and colors.none or colors.bg0
+	local bg_inactive = config.dim_inactive and colors.bg1 or bg_main
+	local bg_float = config.transparent_float and colors.none or colors.bg1
+	local bg_sidebar = config.transparent and colors.none or colors.bg0
+
 	-- Reset highlighting
 	vim.cmd("highlight clear")
 	if vim.fn.exists("syntax_on") then
@@ -87,11 +124,11 @@ function M.setup()
 	-- ══════════════════════════════════════════════════════════════════════════
 	-- Editor UI
 	-- ══════════════════════════════════════════════════════════════════════════
-	hi("Normal", { fg = colors.fg0, bg = colors.bg0 })
-	hi("NormalFloat", { fg = colors.fg0, bg = colors.bg1 })
-	hi("NormalNC", { fg = colors.fg1, bg = colors.bg0 })
-	hi("FloatBorder", { fg = colors.bg4, bg = colors.bg1 })
-	hi("FloatTitle", { fg = colors.fg0, bg = colors.bg1, style = "bold" })
+	hi("Normal", { fg = colors.fg0, bg = bg_main })
+	hi("NormalFloat", { fg = colors.fg0, bg = bg_float })
+	hi("NormalNC", { fg = colors.fg1, bg = bg_inactive })
+	hi("FloatBorder", { fg = colors.bg4, bg = bg_float })
+	hi("FloatTitle", { fg = colors.fg0, bg = bg_float, style = "bold" })
 
 	-- Cursor & Lines
 	hi("Cursor", { fg = colors.bg0, bg = colors.fg0 })
@@ -99,8 +136,8 @@ function M.setup()
 	hi("CursorLineNr", { fg = colors.purple, bg = colors.bg1, style = "bold" })
 	hi("CursorColumn", { bg = colors.bg1 })
 	hi("ColorColumn", { bg = colors.bg1 })
-	hi("LineNr", { fg = colors.fg3, bg = colors.none })
-	hi("SignColumn", { fg = colors.fg3, bg = colors.bg0 })
+	hi("LineNr", { fg = colors.fg3, bg = bg_main })
+	hi("SignColumn", { fg = colors.fg3, bg = bg_main })
 	hi("VertSplit", { fg = colors.bg4, bg = colors.none })
 	hi("WinSeparator", { fg = colors.bg4, bg = colors.none })
 
@@ -116,10 +153,10 @@ function M.setup()
 	hi("StatusLine", { fg = colors.fg0, bg = colors.bg2 })
 	hi("StatusLineNC", { fg = colors.fg2, bg = colors.bg1 })
 	hi("TabLine", { fg = colors.fg2, bg = colors.bg1 })
-	hi("TabLineFill", { bg = colors.bg0 })
+	hi("TabLineFill", { bg = bg_main })
 	hi("TabLineSel", { fg = colors.fg0, bg = colors.bg2, style = "bold" })
-	hi("WinBar", { fg = colors.fg1, bg = colors.bg0 })
-	hi("WinBarNC", { fg = colors.fg2, bg = colors.bg0 })
+	hi("WinBar", { fg = colors.fg1, bg = bg_main })
+	hi("WinBarNC", { fg = colors.fg2, bg = bg_main })
 
 	-- Popup Menu
 	hi("Pmenu", { fg = colors.fg0, bg = colors.bg2 })
@@ -137,7 +174,7 @@ function M.setup()
 
 	-- Folds & Conceal
 	hi("Folded", { fg = colors.fg2, bg = colors.bg1 })
-	hi("FoldColumn", { fg = colors.fg3, bg = colors.bg0 })
+	hi("FoldColumn", { fg = colors.fg3, bg = bg_main })
 	hi("Conceal", { fg = colors.fg2 })
 
 	-- Diff (purple-tinted backgrounds)
@@ -384,7 +421,7 @@ function M.setup()
 	-- ══════════════════════════════════════════════════════════════════════════
 	-- NvimTree / Neo-tree
 	-- ══════════════════════════════════════════════════════════════════════════
-	hi("NvimTreeNormal", { fg = colors.fg0, bg = colors.bg0 })
+	hi("NvimTreeNormal", { fg = colors.fg0, bg = bg_sidebar })
 	hi("NvimTreeFolderIcon", { fg = colors.purple })
 	hi("NvimTreeFolderName", { fg = colors.purple })
 	hi("NvimTreeOpenedFolderName", { fg = colors.purple, style = "bold" })
@@ -395,8 +432,8 @@ function M.setup()
 	hi("NvimTreeSpecialFile", { fg = colors.rose })
 	hi("NvimTreeIndentMarker", { fg = colors.bg4 })
 
-	hi("NeoTreeNormal", { fg = colors.fg0, bg = colors.bg0 })
-	hi("NeoTreeNormalNC", { fg = colors.fg1, bg = colors.bg0 })
+	hi("NeoTreeNormal", { fg = colors.fg0, bg = bg_sidebar })
+	hi("NeoTreeNormalNC", { fg = colors.fg1, bg = bg_sidebar })
 	hi("NeoTreeDirectoryIcon", { fg = colors.purple })
 	hi("NeoTreeDirectoryName", { fg = colors.purple })
 	hi("NeoTreeRootName", { fg = colors.violet, style = "bold" })
@@ -532,7 +569,7 @@ function M.setup()
 	-- ══════════════════════════════════════════════════════════════════════════
 	-- Bufferline
 	-- ══════════════════════════════════════════════════════════════════════════
-	hi("BufferLineFill", { bg = colors.bg0 })
+	hi("BufferLineFill", { bg = bg_main })
 	hi("BufferLineBackground", { fg = colors.fg2, bg = colors.bg1 })
 	hi("BufferLineBuffer", { fg = colors.fg2, bg = colors.bg1 })
 	hi("BufferLineBufferSelected", { fg = colors.fg0, bg = colors.bg0, style = "bold" })
@@ -547,6 +584,28 @@ function M.setup()
 	hi("BufferLineSeparator", { fg = colors.bg0, bg = colors.bg1 })
 	hi("BufferLineSeparatorSelected", { fg = colors.bg0, bg = colors.bg0 })
 	hi("BufferLineSeparatorVisible", { fg = colors.bg0, bg = colors.bg0 })
+
+	-- ══════════════════════════════════════════════════════════════════════════
+	-- Terminal Colors
+	-- ══════════════════════════════════════════════════════════════════════════
+	if config.terminal_colors then
+		vim.g.terminal_color_0 = colors.bg1 -- Black
+		vim.g.terminal_color_1 = colors.coral -- Red
+		vim.g.terminal_color_2 = colors.mint -- Green
+		vim.g.terminal_color_3 = colors.yellow -- Yellow
+		vim.g.terminal_color_4 = colors.purple -- Blue (using purple as primary)
+		vim.g.terminal_color_5 = colors.pink -- Magenta
+		vim.g.terminal_color_6 = colors.cyan -- Cyan
+		vim.g.terminal_color_7 = colors.fg1 -- White
+		vim.g.terminal_color_8 = colors.bg3 -- Bright Black
+		vim.g.terminal_color_9 = "#f0a0a8" -- Bright Red
+		vim.g.terminal_color_10 = "#a0f0b8" -- Bright Green
+		vim.g.terminal_color_11 = "#f0e0a0" -- Bright Yellow
+		vim.g.terminal_color_12 = colors.violet -- Bright Blue (violet)
+		vim.g.terminal_color_13 = colors.rose -- Bright Magenta
+		vim.g.terminal_color_14 = colors.teal -- Bright Cyan
+		vim.g.terminal_color_15 = colors.fg0 -- Bright White
+	end
 
 	-- Store lualine theme in global for backwards compatibility
 	vim.g.aurora_depths_lualine = M.lualine()

@@ -1,18 +1,18 @@
 {
   "name": "aurora-depths-theme",
-  "displayName": "Aurora Depths",
-  "description": "A deep, dreamy dark theme combining Poimandres and Nord aesthetics with WCAG AA accessibility",
-  "version": "1.0.0",
+  "displayName": "Aurora Depths Purple Edition",
+  "description": "A sophisticated purple-first dark theme with WCAG AA accessibility compliance",
+  "version": "2.0.0",
   "publisher": "aurora-depths",
   "engines": {
     "vscode": "^1.60.0"
   },
   "categories": ["Themes"],
-  "keywords": ["dark", "theme", "nord", "poimandres", "accessible", "aurora"],
+  "keywords": ["dark", "theme", "purple", "accessible", "aurora", "wcag"],
   "contributes": {
     "themes": [
       {
-        "label": "Aurora Depths",
+        "label": "Aurora Depths Purple Edition",
         "uiTheme": "vs-dark",
         "path": "./aurora-depths-color-theme.json"
       }

@@ -6,7 +6,7 @@
 
 # PRIMARY PURPLE FAMILY (The Hero)
 export _SSDF_CM_PURPLE=0xffc4b5f0   # Functions, primary accent
-export _SSDF_CM_VIOLET=0xffa78bfa   # Decorators, properties
+export _SSDF_CM_VIOLET=0xffc4a8ff   # Decorators, properties
 
 # PINK/MAGENTA FAMILY - Keywords
 export _SSDF_CM_PINK=0xfff0a0c8     # Keywords, operators
@@ -21,7 +21,7 @@ export _SSDF_CM_SAGE=0xffa8d4a8     # Strings
 export _SSDF_CM_MINT=0xff8ce0a0     # Success, booleans
 export _SSDF_CM_YELLOW=0xffe8d088   # Warnings
 export _SSDF_CM_PEACH=0xffe8a888    # Numbers, constants
-export _SSDF_CM_CORAL=0xffe88090    # Errors
+export _SSDF_CM_CORAL=0xfff0a0a8    # Errors
 export _SSDF_CM_SKY=0xff88c4f0      # Variables
 export _SSDF_CM_ROSE=0xffe0a8c0     # Imports
 
@@ -51,7 +51,7 @@ export _SSDF_CM_MANTLE_LIGHTER=0xff2e293c # Panels, floating windows
 export _SSDF_WS_PURPLE=0xffc4b5f0   # Purple accent (primary)
 export _SSDF_WS_PINK=0xfff0a0c8     # Pink accent
 export _SSDF_WS_CYAN=0xff7dd3d0     # Cyan accent
-export _SSDF_WS_VIOLET=0xffa78bfa   # Violet accent
+export _SSDF_WS_VIOLET=0xffc4a8ff   # Violet accent
 
 # Legacy workspace aliases
 export _SSDF_WS_TEAL=$_SSDF_WS_CYAN

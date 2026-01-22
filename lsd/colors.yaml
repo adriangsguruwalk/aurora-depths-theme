@@ -20,7 +20,7 @@ permission:
   read: "#a8d4a8"         # Sage - read permission
   write: "#e8d088"        # Yellow - write permission
   exec: "#e88090"         # Coral - execute permission
-  exec-sticky: "#a78bfa"  # Violet - sticky exec
+  exec-sticky: "#c4a8ff"  # Violet (AAA) - sticky exec
   no-access: "#686480"    # fg3 - no permission
   octal: "#88c4f0"        # Sky - octal display
   acl: "#e0a8c0"          # Rose - ACL indicator
@@ -47,20 +47,20 @@ git-status:
   new-in-index: "#8ce0a0" # Mint - staged new
   new-in-workdir: "#a8d4a8" # Sage - untracked
   typechange: "#7dd3d0"   # Cyan - type changed
-  deleted: "#e88090"      # Coral - deleted
+  deleted: "#f0a0a8"      # Coral (AAA) - deleted
   renamed: "#f0a0c8"      # Pink - renamed
   modified: "#e8d088"     # Yellow - modified
-  conflicted: "#e88090"   # Coral - conflicts
+  conflicted: "#f0a0a8"   # Coral (AAA) - conflicts
 
 # Symlinks
 links:
   valid: "#c4b5f0"        # Purple - valid symlink
-  invalid: "#e88090"      # Coral - broken symlink
+  invalid: "#f0a0a8"      # Coral (AAA) - broken symlink
 
 # INode (unique file identifier)
 inode:
   valid: "#a78bfa"        # Violet
-  invalid: "#e88090"      # Coral
+  invalid: "#f0a0a8"      # Coral (AAA)
 
 # Tree structure
 tree-edge: "#4a4565"      # bg4 - tree lines
