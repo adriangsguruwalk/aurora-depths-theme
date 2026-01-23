@@ -39,6 +39,7 @@ M.colors = {
 
 	-- Pink/Magenta Family - Keywords
 	pink = "#f0a0c8", -- Keywords, operators
+	-- pink = "#e879a8",
 	magenta = "#e879a8", -- Control flow
 
 	-- Complementary - Types
@@ -254,6 +255,7 @@ function M.setup(opts)
 	hi("@variable.builtin", { fg = colors.sky })
 	hi("@variable.parameter", { fg = colors.sky, style = "italic" })
 	hi("@variable.member", { fg = colors.fg0 })
+	hi("@variable.member.ruby", { fg = colors.peach })
 
 	hi("@constant", { fg = colors.peach })
 	hi("@constant.builtin", { fg = colors.peach, style = "bold" })
