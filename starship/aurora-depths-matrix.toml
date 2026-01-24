@@ -1,0 +1,484 @@
+# ══════════════════════════════════════════════════════════════════════════════
+#  ▀█▀ █ █ █▀▀   █▀▄▀█ ▄▀█ ▀█▀ █▀█ █ ▀▄▀
+#   █  █▀█ ██▄   █ ▀ █ █▀█  █  █▀▄ █ █ █
+# ══════════════════════════════════════════════════════════════════════════════
+#  AURORA DEPTHS // MATRIX DATASTREAM // 2026
+#  "Wake up, Neo... The Matrix has you."
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# DESIGN PHILOSOPHY:
+# - Digital rain aesthetic with cascading information
+# - Hex addresses and memory locations
+# - Glitch-art characters and broken segments
+# - High-contrast neon on void
+# - System process monitoring feel
+# - Two-line prompt with status dashboard on top
+#
+# REQUIRES: Nerd Font v3.0+ with full glyph support
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = "aurora_matrix"
+
+[palettes.aurora_matrix]
+# ── The Void ──
+void        = "#000000"
+abyss       = "#0a0a0f"
+bg0         = "#0d0d12"
+bg1         = "#151520"
+bg2         = "#1a1a28"
+bg3         = "#252535"
+bg4         = "#353548"
+
+# ── Digital Phosphor ──
+fg0         = "#e0ffe0"
+fg1         = "#b0d0b0"
+fg2         = "#709070"
+fg3         = "#506050"
+fg4         = "#304030"
+
+# ── Matrix Core (Green Spectrum) ──
+matrix      = "#00ff41"     # The iconic Matrix green
+matrixdim   = "#00b030"     # Dimmed matrix
+matrixglow  = "#40ff80"     # Glowing matrix
+matrixfade  = "#207040"     # Fading digital rain
+
+# ── Aurora Integration ──
+purple      = "#c4b5f0"
+violet      = "#c4a8ff"
+pink        = "#f0a0c8"
+magenta     = "#e879a8"
+cyan        = "#7dd3d0"
+teal        = "#5ccfb8"
+mint        = "#8ce0a0"
+yellow      = "#e8d088"
+peach       = "#e8a888"
+coral       = "#f0a0a8"
+sky         = "#88c4f0"
+
+# ── Neon Overrides ──
+neongreen   = "#39ff14"
+neoncyan    = "#00ffff"
+neonpink    = "#ff6eb4"
+neonred     = "#ff3131"
+neonblue    = "#00bfff"
+neonyellow  = "#ffff00"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# MATRIX ARCHITECTURE - Digital Rain Layout
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# ╭──[SYS]──0x7fff──λ:~/project──±:main*──△:+3-1──◇:v2.0──▣:node@22
+# ╰──⟨PID:$$⟩──[OK]──❯ _
+#
+# Top: System location, version control, stack detection
+# Bottom: Process info, exit status, prompt character
+
+format = """
+[╭──](matrixdim)\
+$os\
+[──](matrixdim)\
+$username\
+$hostname\
+$localip\
+$shlvl\
+[──](matrixdim)\
+$directory\
+[──](matrixdim)\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$git_metrics\
+[──](matrixdim)\
+$package\
+$fill\
+$c\
+$rust\
+$golang\
+$python\
+$nodejs\
+$ruby\
+$java\
+$kotlin\
+$swift\
+$elixir\
+$lua\
+$php\
+$docker_context\
+$kubernetes\
+$terraform\
+$aws\
+$gcloud\
+$azure\
+$nix_shell\
+$conda\
+$memory_usage\
+$cmd_duration\
+$time\
+$line_break\
+[╰──](matrixdim)\
+$jobs\
+$battery\
+$status\
+$sudo\
+$container\
+[──](matrixdim)\
+$character"""
+
+right_format = ""
+
+continuation_prompt = "[│  ](matrixdim)[↳](matrix) "
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CORE IDENTITY - Digital Avatar
+# ══════════════════════════════════════════════════════════════════════════════
+
+[character]
+success_symbol = "[❯](bold matrix)"
+error_symbol = "[❯](bold neonred)"
+vimcmd_symbol = "[❮](bold neoncyan)"
+vimcmd_replace_one_symbol = "[❮](bold neonpink)"
+vimcmd_replace_symbol = "[❮](bold neonpink)"
+vimcmd_visual_symbol = "[❮](bold violet)"
+
+[username]
+format = "[⟨](matrixdim)[$user](matrix)[⟩](matrixdim)"
+style_user = "matrix"
+style_root = "bold neonred"
+show_always = false
+
+[hostname]
+format = "[@](matrixdim)[$ssh_symbol$hostname](matrixglow)"
+style = "matrixglow"
+ssh_only = true
+ssh_symbol = "󰣀"
+trim_at = "."
+
+[localip]
+format = "[⟨](matrixdim)[$localipv4](matrixdim)[⟩](matrixdim)"
+style = "matrixdim"
+ssh_only = true
+disabled = false
+
+[directory]
+format = "[λ](matrix)[:](matrixdim)[$read_only]($read_only_style)[$path](bold matrix)"
+style = "bold matrix"
+read_only = "󰌾"
+read_only_style = "neonred"
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "…/"
+home_symbol = "~"
+use_os_path_sep = true
+
+[directory.substitutions]
+"Documents" = "DOC"
+"Downloads" = "DWN"
+"Projects" = "PRJ"
+"Developer" = "DEV"
+".config" = ".CFG"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# VERSION CONTROL - Source Tree Protocol
+# ══════════════════════════════════════════════════════════════════════════════
+
+[git_branch]
+format = "[±](neongreen)[:](matrixdim)[$branch(:$remote_branch)](matrixglow)"
+symbol = ""
+style = "matrixglow"
+truncation_length = 18
+truncation_symbol = "…"
+only_attached = false
+
+[git_commit]
+format = '[⟨$hash⟩](matrixdim)'
+style = "matrixdim"
+commit_hash_length = 7
+tag_symbol = "󰓹"
+only_detached = true
+tag_disabled = false
+
+[git_state]
+format = '[⟨$state($progress_current/$progress_total)⟩](neonyellow)'
+style = "neonyellow"
+rebase = "REBASE"
+merge = "MERGE"
+revert = "REVERT"
+cherry_pick = "CHERRY"
+bisect = "BISECT"
+am = "AM"
+am_or_rebase = "AM/REB"
+
+[git_metrics]
+format = '[△](matrixdim)[:](matrixdim)([+$added]($added_style))([-$deleted]($deleted_style))'
+added_style = "neongreen"
+deleted_style = "neonred"
+disabled = false
+only_nonzero_diffs = true
+
+[git_status]
+format = '([$all_status$ahead_behind]($style))'
+style = "matrixglow"
+conflicted = "[!CONFLICT!](bold neonred)"
+ahead = "[↑${count}](neongreen)"
+behind = "[↓${count}](neonyellow)"
+diverged = "[↕${ahead_count}↕${behind_count}](neonpink)"
+up_to_date = ""
+untracked = "[?](neonyellow)"
+stashed = "[≡](matrixglow)"
+modified = "[*](neonyellow)"
+staged = "[+](neongreen)"
+renamed = "[»](matrixglow)"
+deleted = "[✘](neonred)"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# RUNTIME MATRIX - Language Protocols
+# ══════════════════════════════════════════════════════════════════════════════
+
+[package]
+format = "[──](matrixdim)[◇](teal)[:](matrixdim)[$version](teal)"
+symbol = ""
+style = "teal"
+display_private = false
+disabled = false
+
+[nodejs]
+format = "[──](matrixdim)[▣](neongreen)[:](matrixdim)[node](matrixdim)[@](matrixdim)[$version](mint)"
+symbol = ""
+style = "mint"
+detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts", "tsx", "jsx"]
+detect_files = ["package.json", ".node-version", ".nvmrc"]
+detect_folders = ["node_modules"]
+
+[python]
+format = "[──](matrixdim)[▣](yellow)[:](matrixdim)[py](matrixdim)[@](matrixdim)[$version](yellow)"
+symbol = ""
+style = "yellow"
+pyenv_version_name = false
+detect_extensions = ["py"]
+detect_files = ["requirements.txt", "pyproject.toml", "setup.py", "Pipfile"]
+
+[rust]
+format = "[──](matrixdim)[▣](peach)[:](matrixdim)[rs](matrixdim)[@](matrixdim)[$version](peach)"
+symbol = ""
+style = "peach"
+detect_extensions = ["rs"]
+detect_files = ["Cargo.toml"]
+
+[golang]
+format = "[──](matrixdim)[▣](neoncyan)[:](matrixdim)[go](matrixdim)[@](matrixdim)[$version](cyan)"
+symbol = ""
+style = "cyan"
+detect_extensions = ["go"]
+detect_files = ["go.mod", "go.sum"]
+
+[ruby]
+format = "[──](matrixdim)[▣](coral)[:](matrixdim)[rb](matrixdim)[@](matrixdim)[$version](coral)"
+symbol = ""
+style = "coral"
+detect_extensions = ["rb"]
+detect_files = ["Gemfile", ".ruby-version"]
+
+[java]
+format = "[──](matrixdim)[▣](peach)[:](matrixdim)[java](matrixdim)[@](matrixdim)[$version](peach)"
+symbol = ""
+style = "peach"
+detect_extensions = ["java", "class"]
+detect_files = ["pom.xml", "build.gradle.kts"]
+
+[kotlin]
+format = "[──](matrixdim)[▣](violet)[:](matrixdim)[kt](matrixdim)[@](matrixdim)[$version](violet)"
+symbol = ""
+style = "violet"
+detect_extensions = ["kt", "kts"]
+
+[swift]
+format = "[──](matrixdim)[▣](peach)[:](matrixdim)[swift](matrixdim)[@](matrixdim)[$version](peach)"
+symbol = ""
+style = "peach"
+detect_extensions = ["swift"]
+
+[elixir]
+format = "[──](matrixdim)[▣](purple)[:](matrixdim)[ex](matrixdim)[@](matrixdim)[$version](purple)"
+symbol = ""
+style = "purple"
+detect_extensions = ["ex", "exs"]
+
+[lua]
+format = "[──](matrixdim)[▣](sky)[:](matrixdim)[lua](matrixdim)[@](matrixdim)[$version](sky)"
+symbol = ""
+style = "sky"
+detect_extensions = ["lua"]
+
+[php]
+format = "[──](matrixdim)[▣](violet)[:](matrixdim)[php](matrixdim)[@](matrixdim)[$version](violet)"
+symbol = ""
+style = "violet"
+detect_extensions = ["php"]
+
+[c]
+format = "[──](matrixdim)[▣](fg2)[:](matrixdim)[c](matrixdim)[@](matrixdim)[$version](fg2)"
+symbol = ""
+style = "fg2"
+detect_extensions = ["c", "h"]
+
+# ══════════════════════════════════════════════════════════════════════════════
+# INFRASTRUCTURE - Network Protocols
+# ══════════════════════════════════════════════════════════════════════════════
+
+[docker_context]
+format = "[──](matrixdim)[󰡨](neoncyan)[:](matrixdim)[$context](cyan)"
+symbol = ""
+style = "cyan"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+
+[kubernetes]
+format = "[──](matrixdim)[󱃾](neonblue)[:](matrixdim)[$context](sky)[/](matrixdim)[$namespace](fg3)"
+symbol = ""
+style = "sky"
+disabled = false
+detect_env_vars = ["KUBECONFIG"]
+
+[terraform]
+format = "[──](matrixdim)[󱁢](violet)[:](matrixdim)[$workspace](violet)"
+symbol = ""
+style = "violet"
+detect_extensions = ["tf", "tfplan", "tfstate"]
+
+[aws]
+format = "[──](matrixdim)[󰸏](neonyellow)[:](matrixdim)[$profile](yellow)"
+symbol = ""
+style = "yellow"
+force_display = false
+
+[gcloud]
+format = "[──](matrixdim)[󱇶](neonblue)[:](matrixdim)[$project](sky)"
+symbol = ""
+style = "sky"
+
+[azure]
+format = "[──](matrixdim)[󰠅](neonblue)[:](matrixdim)[$subscription](sky)"
+symbol = ""
+style = "sky"
+
+[nix_shell]
+format = "[──](matrixdim)[󱄅](neoncyan)[:](matrixdim)[$state](cyan)"
+symbol = ""
+style = "cyan"
+impure_msg = "impure"
+pure_msg = "pure"
+
+[conda]
+format = "[──](matrixdim)[󱔎](neongreen)[:](matrixdim)[$environment](mint)"
+symbol = ""
+style = "mint"
+truncation_length = 12
+ignore_base = true
+
+# ══════════════════════════════════════════════════════════════════════════════
+# SYSTEM TELEMETRY - Process Monitoring
+# ══════════════════════════════════════════════════════════════════════════════
+
+[time]
+format = "[──](matrixdim)[⧗](matrixdim)[$time](matrix)"
+style = "matrix"
+disabled = false
+use_12hr = false
+time_format = "%H:%M:%S"
+utc_time_offset = "local"
+
+[cmd_duration]
+format = "[──](matrixdim)[⚡](neonyellow)[:](matrixdim)[$duration](yellow)"
+style = "yellow"
+min_time = 2_000
+show_milliseconds = false
+
+[fill]
+symbol = "─"
+style = "matrixdim"
+
+[jobs]
+format = "[⟨](matrixdim)[jobs](matrixdim)[:](matrixdim)[$number](matrixglow)[⟩](matrixdim)"
+symbol = ""
+style = "matrixglow"
+number_threshold = 1
+symbol_threshold = 1
+
+[battery]
+format = "[⟨](matrixdim)[$symbol$percentage](matrix)[⟩](matrixdim)"
+full_symbol = "█"
+charging_symbol = "⚡"
+discharging_symbol = "▓"
+unknown_symbol = "░"
+empty_symbol = "▁"
+disabled = false
+
+[[battery.display]]
+threshold = 15
+style = "bold neonred"
+discharging_symbol = "▂"
+
+[[battery.display]]
+threshold = 30
+style = "neonyellow"
+discharging_symbol = "▃"
+
+[[battery.display]]
+threshold = 100
+style = "matrix"
+
+[memory_usage]
+format = "[⟨](matrixdim)[MEM](matrixdim)[:](matrixdim)[$ram](matrixglow)[⟩](matrixdim)"
+symbol = ""
+style = "matrixglow"
+threshold = 75
+disabled = true
+
+[status]
+format = '[⟨](matrixdim)[ERR](matrixdim)[:](matrixdim)[$status](neonred)[⟩](matrixdim)'
+symbol = ""
+success_symbol = ""
+not_executable_symbol = "NOEXEC"
+not_found_symbol = "NOTFOUND"
+sigint_symbol = "SIGINT"
+signal_symbol = "SIG"
+style = "neonred"
+map_symbol = true
+recognize_signal_code = true
+disabled = false
+
+[shlvl]
+format = "[⟨](matrixdim)[LVL](matrixdim)[:](matrixdim)[$shlvl](neonyellow)[⟩](matrixdim)"
+symbol = ""
+style = "neonyellow"
+threshold = 2
+repeat = false
+disabled = false
+
+[sudo]
+format = "[⟨](matrixdim)[ROOT](neonred)[⟩](matrixdim)"
+symbol = ""
+style = "bold neonred"
+allow_windows = false
+disabled = false
+
+[container]
+format = '[⟨](matrixdim)[CTR](matrixdim)[:](matrixdim)[$name](neoncyan)[⟩](matrixdim)'
+symbol = ""
+style = "neoncyan"
+
+[os]
+format = "[⟨](matrixdim)[$symbol](matrix)[⟩](matrixdim)"
+style = "matrix"
+disabled = false
+
+[os.symbols]
+Macos = "MAC"
+Linux = "LNX"
+Windows = "WIN"
+Ubuntu = "UBT"
+Arch = "ARC"
+Fedora = "FED"
+Debian = "DEB"

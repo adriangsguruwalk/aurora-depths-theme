@@ -1,0 +1,323 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                              ║
+# ║    ░██████╗░██╗░░██╗░█████╗░░██████╗████████╗                                ║
+# ║    ██╔════╝░██║░░██║██╔══██╗██╔════╝╚══██╔══╝                                ║
+# ║    ██║░░██╗░███████║██║░░██║╚█████╗░░░░██║░░░                                ║
+# ║    ██║░░╚██╗██╔══██║██║░░██║░╚═══██╗░░░██║░░░                                ║
+# ║    ╚██████╔╝██║░░██║╚█████╔╝██████╔╝░░░██║░░░                                ║
+# ║    ░╚═════╝░╚═╝░░╚═╝░╚════╝░╚═════╝░░░░╚═╝░░░                                ║
+# ║                                                                              ║
+# ║    AURORA DEPTHS // GHOST SHELL EDITION // 2026                              ║
+# ║    "Minimal presence. Maximum awareness."                                    ║
+# ║                                                                              ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# DESIGN PHILOSOPHY:
+# - Inspired by Ghost in the Shell's subtle tech interfaces
+# - Whisper-quiet aesthetics - information appears when needed
+# - Single-line prompt with essential data only
+# - Floating right-aligned context data
+# - Elegant minimalism meets cyberpunk sophistication
+#
+# PERFECT FOR: Clean terminal aesthetics, focused work, SSH sessions
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = "aurora_ghost"
+
+[palettes.aurora_ghost]
+# ── Phantom Substrate ──
+void        = "#0a0910"
+bg0         = "#1a1825"
+bg1         = "#242030"
+bg2         = "#2e293c"
+bg3         = "#3a3550"
+bg4         = "#4a4565"
+
+# ── Spectral Light ──
+fg0         = "#e8e6f0"
+fg1         = "#c4c0d4"
+fg2         = "#908ca4"
+fg3         = "#686480"
+fg4         = "#4a4560"
+ghost       = "#3d3850"
+
+# ── Neural Glow ──
+purple      = "#c4b5f0"
+violet      = "#c4a8ff"
+phantom     = "#9080c0"
+
+# ── Signal Colors ──
+pink        = "#f0a0c8"
+magenta     = "#e879a8"
+cyan        = "#7dd3d0"
+teal        = "#5ccfb8"
+mint        = "#8ce0a0"
+sage        = "#a8d4a8"
+yellow      = "#e8d088"
+peach       = "#e8a888"
+coral       = "#f0a0a8"
+sky         = "#88c4f0"
+rose        = "#e0a8c0"
+
+# ── Neon Highlights ──
+neonpurple  = "#b8a0ff"
+neoncyan    = "#00ffff"
+neongreen   = "#39ff14"
+neonred     = "#ff4444"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# GHOST SHELL - Minimal Single Line Architecture
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# Output: ~/projects/repo ±main +2-1 ❯ _
+# Right:                            node●20.1 │ 2.3s │ 14:32
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$git_metrics\
+$character"""
+
+right_format = """
+$cmd_duration\
+$c\
+$rust\
+$golang\
+$python\
+$nodejs\
+$ruby\
+$java\
+$kotlin\
+$elixir\
+$docker_context\
+$kubernetes\
+$aws\
+$time"""
+
+continuation_prompt = "[  ](ghost)[·](phantom) "
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CORE INTERFACE
+# ══════════════════════════════════════════════════════════════════════════════
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](coral)"
+vimcmd_symbol = "[❮](cyan)"
+vimcmd_replace_one_symbol = "[❮](pink)"
+vimcmd_replace_symbol = "[❮](pink)"
+vimcmd_visual_symbol = "[❮](violet)"
+
+[directory]
+format = "[$read_only]($read_only_style)[$path]($style) "
+style = "purple"
+read_only = "● "
+read_only_style = "coral"
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "…/"
+home_symbol = "~"
+use_os_path_sep = true
+
+# ══════════════════════════════════════════════════════════════════════════════
+# VERSION CONTROL - Whisper Mode
+# ══════════════════════════════════════════════════════════════════════════════
+
+[git_branch]
+format = "[±$branch]($style) "
+symbol = ""
+style = "pink"
+truncation_length = 16
+truncation_symbol = "…"
+only_attached = false
+
+[git_commit]
+format = '[$hash]($style) '
+style = "fg3"
+commit_hash_length = 7
+only_detached = true
+tag_disabled = true
+
+[git_state]
+format = '[$state]($style) '
+style = "yellow"
+rebase = "REB"
+merge = "MRG"
+revert = "REV"
+cherry_pick = "CHR"
+bisect = "BIS"
+am = "AM"
+am_or_rebase = "AM/R"
+
+[git_metrics]
+format = '([+$added]($added_style))([-$deleted]($deleted_style) )'
+added_style = "mint"
+deleted_style = "coral"
+disabled = false
+only_nonzero_diffs = true
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = "violet"
+conflicted = "!"
+ahead = "↑${count}"
+behind = "↓${count}"
+diverged = "↕"
+up_to_date = ""
+untracked = "?"
+stashed = "*"
+modified = "~"
+staged = "+"
+renamed = "»"
+deleted = "x"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# RUNTIME DETECTION - Phantom Signatures
+# ══════════════════════════════════════════════════════════════════════════════
+
+[nodejs]
+format = "[node](fg3)[●](mint)[$version](fg2) "
+symbol = ""
+style = "mint"
+detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts", "tsx", "jsx"]
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+
+[python]
+format = "[py](fg3)[●](yellow)[$version](fg2) "
+symbol = ""
+style = "yellow"
+pyenv_version_name = false
+detect_extensions = ["py"]
+detect_files = ["requirements.txt", "pyproject.toml", "setup.py"]
+
+[rust]
+format = "[rs](fg3)[●](peach)[$version](fg2) "
+symbol = ""
+style = "peach"
+detect_extensions = ["rs"]
+detect_files = ["Cargo.toml"]
+
+[golang]
+format = "[go](fg3)[●](cyan)[$version](fg2) "
+symbol = ""
+style = "cyan"
+detect_extensions = ["go"]
+detect_files = ["go.mod"]
+
+[ruby]
+format = "[rb](fg3)[●](coral)[$version](fg2) "
+symbol = ""
+style = "coral"
+detect_extensions = ["rb"]
+detect_files = ["Gemfile", ".ruby-version"]
+
+[java]
+format = "[java](fg3)[●](peach)[$version](fg2) "
+symbol = ""
+style = "peach"
+detect_extensions = ["java"]
+detect_files = ["pom.xml", "build.gradle.kts"]
+
+[kotlin]
+format = "[kt](fg3)[●](violet)[$version](fg2) "
+symbol = ""
+style = "violet"
+detect_extensions = ["kt", "kts"]
+
+[elixir]
+format = "[ex](fg3)[●](purple)[$version](fg2) "
+symbol = ""
+style = "purple"
+detect_extensions = ["ex", "exs"]
+
+[c]
+format = "[c](fg3)[●](fg3)[$version](fg2) "
+symbol = ""
+style = "fg2"
+detect_extensions = ["c", "h"]
+
+# ══════════════════════════════════════════════════════════════════════════════
+# INFRASTRUCTURE - Spectral Presence
+# ══════════════════════════════════════════════════════════════════════════════
+
+[docker_context]
+format = "[󰡨](cyan)[$context](fg2) "
+symbol = ""
+style = "cyan"
+only_with_files = true
+detect_files = ["docker-compose.yml", "Dockerfile"]
+
+[kubernetes]
+format = "[󱃾](sky)[$context](fg2) "
+symbol = ""
+style = "sky"
+disabled = false
+
+[aws]
+format = "[󰸏](yellow)[$profile](fg2) "
+symbol = ""
+style = "yellow"
+force_display = false
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TELEMETRY - Whisper Data
+# ══════════════════════════════════════════════════════════════════════════════
+
+[time]
+format = "[│](ghost) [$time](fg3)"
+style = "fg3"
+disabled = false
+use_12hr = false
+time_format = "%H:%M"
+utc_time_offset = "local"
+
+[cmd_duration]
+format = "[$duration](fg3) [│](ghost) "
+style = "fg3"
+min_time = 2_000
+show_milliseconds = false
+
+[fill]
+symbol = " "
+style = ""
+
+[jobs]
+format = "[&$number](violet) "
+symbol = ""
+style = "violet"
+number_threshold = 1
+symbol_threshold = 1
+
+[battery]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[status]
+format = '[!$status]($style) '
+symbol = ""
+success_symbol = ""
+style = "coral"
+disabled = false
+
+[username]
+format = "[$user](purple)[@](fg3)"
+show_always = false
+
+[hostname]
+format = "[$hostname](fg2) "
+ssh_only = true
+
+[sudo]
+format = "[◆](neonred) "
+disabled = false
+
+[os]
+disabled = true
+
+[shlvl]
+disabled = true

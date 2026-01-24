@@ -1,0 +1,409 @@
+# ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+#    █▀▀ █   █ ▀█▀ █▀▀ █ █    █▀▄▀█ █▀█ █▀▄ █▀▀
+#    █▄█ █▄▄ █  █  █▄▄ █▀█    █ ▀ █ █▄█ █▄▀ ██▄
+# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+# ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+#
+#  AURORA DEPTHS // GLITCH MODE // 2026
+#  "R̴e̷a̸l̵i̸t̴y̵ ̷i̵s̴ ̸j̵u̸s̶t̴ ̵a̴ ̵s̶i̸m̴u̷l̷a̵t̴i̸o̷n̷"
+#
+#  DESIGN PHILOSOPHY:
+#  - Corrupted data aesthetic with broken segments
+#  - Zalgo-inspired visual artifacts
+#  - CRT scan line vibes
+#  - Information fragmentation
+#  - Digital decay and noise
+#  - Maximum cyberpunk immersion
+#
+#  WARNING: This is an experimental aesthetic. May cause existential dread.
+#  REQUIRES: Nerd Font v3.0+ (with full Unicode support)
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = "aurora_glitch"
+
+[palettes.aurora_glitch]
+# ── Corrupted Void ──
+static      = "#0f0f14"
+void        = "#12111a"
+bg0         = "#1a1825"
+bg1         = "#242030"
+bg2         = "#2e293c"
+bg3         = "#3a3550"
+bg4         = "#4a4565"
+
+# ── Scan Lines ──
+fg0         = "#e8e6f0"
+fg1         = "#c4c0d4"
+fg2         = "#908ca4"
+fg3         = "#686480"
+fg4         = "#4a4560"
+noise       = "#353040"
+
+# ── Glitch Primaries ──
+purple      = "#c4b5f0"
+violet      = "#c4a8ff"
+corruptpurp = "#a090d0"
+glitchpurp  = "#e0d0ff"
+
+# ── Error Colors ──
+pink        = "#f0a0c8"
+magenta     = "#e879a8"
+hotpink     = "#ff0080"
+glitchpink  = "#ff69b4"
+
+# ── Data Colors ──
+cyan        = "#7dd3d0"
+teal        = "#5ccfb8"
+glitchcyan  = "#00ffff"
+electric    = "#00e5ff"
+
+# ── Status Signals ──
+mint        = "#8ce0a0"
+sage        = "#a8d4a8"
+yellow      = "#e8d088"
+amber       = "#ffc107"
+peach       = "#e8a888"
+coral       = "#f0a0a8"
+sky         = "#88c4f0"
+rose        = "#e0a8c0"
+
+# ── Neon Overload ──
+neongreen   = "#39ff14"
+neonred     = "#ff073a"
+neonblue    = "#0ff"
+neonyellow  = "#fff01f"
+neonpink    = "#ff6ec7"
+neonpurple  = "#bf00ff"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# GLITCH ARCHITECTURE - Fragmented Reality
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# ░▒▓ user@sys ▓▒░ ▌λ ~/pr̶o̷j̴e̵c̷t▐ ▌±:ma̵i̷n̴▐ ▌+3-1▐ ▌⚡2.3s▐ ▌14:32▐
+# ▓░▒ ❯ _
+#
+# Scanline aesthetic with corrupted segment delimiters
+
+format = """
+[░▒▓](bg3)\
+$os\
+$username\
+$hostname\
+[▓▒░](bg3) \
+[▌](fg4)\
+$directory\
+[▐](fg4) \
+[▌](fg4)\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$git_metrics\
+[▐](fg4)\
+$fill\
+$c\
+$rust\
+$golang\
+$python\
+$nodejs\
+$ruby\
+$java\
+$kotlin\
+$elixir\
+$docker_context\
+$kubernetes\
+$aws\
+$cmd_duration\
+$time\
+$line_break\
+[▓░▒](noise) \
+$jobs\
+$status\
+$sudo\
+$battery\
+$character"""
+
+right_format = ""
+
+continuation_prompt = "[▒░](noise) [↯](glitchpink) "
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CORE IDENTITY - Corrupted Avatar
+# ══════════════════════════════════════════════════════════════════════════════
+
+[character]
+success_symbol = "[❯](bold glitchpurp)"
+error_symbol = "[❯](bold neonred)"
+vimcmd_symbol = "[❮](bold glitchcyan)"
+vimcmd_replace_one_symbol = "[❮](bold hotpink)"
+vimcmd_replace_symbol = "[❮](bold hotpink)"
+vimcmd_visual_symbol = "[❮](bold neonpurple)"
+
+[username]
+format = "[$user](bold purple)[@](fg3)"
+style_user = "purple"
+style_root = "bold neonred"
+show_always = false
+
+[hostname]
+format = "[$hostname](fg2)"
+style = "fg2"
+ssh_only = true
+ssh_symbol = "󰣀"
+trim_at = "."
+
+[directory]
+format = "[λ](glitchcyan) [$read_only]($read_only_style)[$path](bold glitchpurp)"
+style = "bold glitchpurp"
+read_only = "█"
+read_only_style = "neonred"
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "░/"
+home_symbol = "~"
+use_os_path_sep = true
+
+# ══════════════════════════════════════════════════════════════════════════════
+# VERSION CONTROL - Fragmented History
+# ══════════════════════════════════════════════════════════════════════════════
+
+[git_branch]
+format = "[±](glitchpink)[$branch(:$remote_branch)](pink)"
+symbol = ""
+style = "pink"
+truncation_length = 16
+truncation_symbol = "░"
+only_attached = false
+
+[git_commit]
+format = '[░$hash░](fg3)'
+style = "fg3"
+commit_hash_length = 7
+tag_symbol = "▓"
+only_detached = true
+tag_disabled = false
+
+[git_state]
+format = '[▓$state▓]($style)'
+style = "bold amber"
+rebase = "R̷E̴B̵"
+merge = "M̷R̴G̵"
+revert = "R̶E̷V̴"
+cherry_pick = "C̵H̶R̷"
+bisect = "B̴I̶S̵"
+am = "A̷M̴"
+am_or_rebase = "A̵/R̶"
+
+[git_metrics]
+format = '([░+$added](neongreen))([░-$deleted](neonred))'
+added_style = "neongreen"
+deleted_style = "neonred"
+disabled = false
+only_nonzero_diffs = true
+
+[git_status]
+format = '([$all_status$ahead_behind]($style))'
+style = "glitchpink"
+conflicted = "[▓!▓](bold neonred)"
+ahead = "[↑${count}](neongreen)"
+behind = "[↓${count}](amber)"
+diverged = "[⇕](neonpink)"
+up_to_date = ""
+untracked = "[?](amber)"
+stashed = "[▓](fg3)"
+modified = "[!](amber)"
+staged = "[+](neongreen)"
+renamed = "[»](glitchpink)"
+deleted = "[✘](neonred)"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# RUNTIME DETECTION - Process Fragments
+# ══════════════════════════════════════════════════════════════════════════════
+
+[package]
+format = "[▌](fg4)[◆$version](teal)[▐](fg4) "
+symbol = ""
+style = "teal"
+display_private = false
+disabled = false
+
+[nodejs]
+format = "[▌](fg4)[░](fg4)[󰎙](neongreen)[$version](mint)[░](fg4)[▐](fg4) "
+symbol = ""
+style = "mint"
+detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts", "tsx", "jsx"]
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+
+[python]
+format = "[▌](fg4)[░](fg4)[󰌠](yellow)[$version](yellow)[░](fg4)[▐](fg4) "
+symbol = ""
+style = "yellow"
+pyenv_version_name = false
+detect_extensions = ["py"]
+detect_files = ["requirements.txt", "pyproject.toml", "setup.py"]
+
+[rust]
+format = "[▌](fg4)[░](fg4)[󱘗](peach)[$version](peach)[░](fg4)[▐](fg4) "
+symbol = ""
+style = "peach"
+detect_extensions = ["rs"]
+detect_files = ["Cargo.toml"]
+
+[golang]
+format = "[▌](fg4)[░](fg4)[󰟓](glitchcyan)[$version](cyan)[░](fg4)[▐](fg4) "
+symbol = ""
+style = "cyan"
+detect_extensions = ["go"]
+detect_files = ["go.mod"]
+
+[ruby]
+format = "[▌](fg4)[░](fg4)[](coral)[$version](coral)[░](fg4)[▐](fg4) "
+symbol = ""
+style = "coral"
+detect_extensions = ["rb"]
+detect_files = ["Gemfile", ".ruby-version"]
+
+[java]
+format = "[▌](fg4)[░](fg4)[](peach)[$version](peach)[░](fg4)[▐](fg4) "
+symbol = ""
+style = "peach"
+detect_extensions = ["java"]
+detect_files = ["pom.xml", "build.gradle.kts"]
+
+[kotlin]
+format = "[▌](fg4)[░](fg4)[󱈙](violet)[$version](violet)[░](fg4)[▐](fg4) "
+symbol = ""
+style = "violet"
+detect_extensions = ["kt", "kts"]
+
+[elixir]
+format = "[▌](fg4)[░](fg4)[](purple)[$version](purple)[░](fg4)[▐](fg4) "
+symbol = ""
+style = "purple"
+detect_extensions = ["ex", "exs"]
+
+[c]
+format = "[▌](fg4)[░](fg4)[](fg2)[$version](fg2)[░](fg4)[▐](fg4) "
+symbol = ""
+style = "fg2"
+detect_extensions = ["c", "h"]
+
+# ══════════════════════════════════════════════════════════════════════════════
+# INFRASTRUCTURE - Network Noise
+# ══════════════════════════════════════════════════════════════════════════════
+
+[docker_context]
+format = "[▌](fg4)[󰡨](electric)[$context](cyan)[▐](fg4) "
+symbol = ""
+style = "cyan"
+only_with_files = true
+detect_files = ["docker-compose.yml", "Dockerfile"]
+
+[kubernetes]
+format = "[▌](fg4)[󱃾](neonblue)[$context](sky)[▐](fg4) "
+symbol = ""
+style = "sky"
+disabled = false
+
+[aws]
+format = "[▌](fg4)[󰸏](neonyellow)[$profile](yellow)[▐](fg4) "
+symbol = ""
+style = "yellow"
+force_display = false
+
+# ══════════════════════════════════════════════════════════════════════════════
+# SYSTEM TELEMETRY - Signal Corruption
+# ══════════════════════════════════════════════════════════════════════════════
+
+[time]
+format = "[▌](fg4)[$time](fg2)[▐](fg4)"
+style = "fg2"
+disabled = false
+use_12hr = false
+time_format = "%H:%M"
+utc_time_offset = "local"
+
+[cmd_duration]
+format = "[▌](fg4)[⚡](amber)[$duration](yellow)[▐](fg4) "
+style = "yellow"
+min_time = 2_000
+show_milliseconds = false
+
+[fill]
+symbol = " "
+style = ""
+
+[jobs]
+format = "[▓](noise)[$number](violet)[░](noise) "
+symbol = ""
+style = "violet"
+number_threshold = 1
+symbol_threshold = 1
+
+[battery]
+format = "[░](noise)[$symbol$percentage](fg2)[▓](noise) "
+full_symbol = "█"
+charging_symbol = "⚡"
+discharging_symbol = "▓"
+unknown_symbol = "░"
+empty_symbol = "▁"
+disabled = false
+
+[[battery.display]]
+threshold = 15
+style = "bold neonred"
+discharging_symbol = "▂"
+
+[[battery.display]]
+threshold = 30
+style = "amber"
+discharging_symbol = "▃"
+
+[[battery.display]]
+threshold = 100
+style = "fg3"
+
+[memory_usage]
+disabled = true
+
+[status]
+format = '[▓](noise)[!$status](neonred)[▓](noise) '
+symbol = ""
+success_symbol = ""
+style = "neonred"
+disabled = false
+
+[shlvl]
+format = "[░](noise)[L$shlvl](amber)[▓](noise) "
+symbol = ""
+style = "amber"
+threshold = 2
+disabled = false
+
+[sudo]
+format = "[▓▓▓](neonred) "
+symbol = ""
+style = "bold neonred"
+disabled = false
+
+[container]
+format = '[▌](fg4)[󰏖](glitchcyan)[$name](cyan)[▐](fg4) '
+symbol = ""
+style = "cyan"
+
+[os]
+format = "[$symbol](purple)"
+style = "purple"
+disabled = false
+
+[os.symbols]
+Macos = "▓"
+Linux = "░"
+Windows = "▒"
+Ubuntu = "░"
+Arch = "▓"
+Fedora = "▒"
+Debian = "░"

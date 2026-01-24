@@ -34,8 +34,8 @@ M.colors = {
 	-- Primary Purple Family (The Hero)
 	purple = "#c4b5f0", -- Functions, methods, primary accent
 	-- purple = "#d4c8f8",
-	-- violet = "#a78bfa", -- Decorators, properties
-	violet = "#c4a8ff",
+	violet = "#a78bfa", -- Decorators, properties
+	-- violet = "#c4a8ff",
 
 	-- Pink/Magenta Family - Keywords
 	pink = "#f0a0c8", -- Keywords, operators
