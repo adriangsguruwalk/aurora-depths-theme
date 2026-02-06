@@ -1,0 +1,235 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "name": "Tokyo Night",
+  "description": "A clean, dark theme with vibrant colors - based on folke/tokyonight.nvim",
+  "defs": {
+    "bg": "#1a1b26",
+    "bgDark": "#16161e",
+    "bgHighlight": "#292e42",
+    "bgVisual": "#283457",
+    "fgGutter": "#3b4261",
+    "terminalBlack": "#414868",
+    "fg": "#c0caf5",
+    "fgDark": "#a9b1d6",
+    "comment": "#565f89",
+    "dark5": "#737aa2",
+    "blue": "#7aa2f7",
+    "blue0": "#3d59a1",
+    "blue1": "#2ac3de",
+    "cyan": "#7dcfff",
+    "blue5": "#89ddff",
+    "magenta": "#bb9af7",
+    "purple": "#9d7cd8",
+    "green": "#9ece6a",
+    "green1": "#73daca",
+    "teal": "#1abc9c",
+    "orange": "#ff9e64",
+    "yellow": "#e0af68",
+    "red": "#f7768e",
+    "red1": "#db4b4b",
+    "diffAddBg": "#243e4a",
+    "diffDeleteBg": "#4a272f"
+  },
+  "theme": {
+    "primary": {
+      "dark": "blue",
+      "light": "blue0"
+    },
+    "secondary": {
+      "dark": "magenta",
+      "light": "purple"
+    },
+    "accent": {
+      "dark": "cyan",
+      "light": "blue1"
+    },
+    "error": {
+      "dark": "red",
+      "light": "red1"
+    },
+    "warning": {
+      "dark": "yellow",
+      "light": "yellow"
+    },
+    "success": {
+      "dark": "green",
+      "light": "green1"
+    },
+    "info": {
+      "dark": "teal",
+      "light": "blue1"
+    },
+    "text": {
+      "dark": "fg",
+      "light": "bg"
+    },
+    "textMuted": {
+      "dark": "comment",
+      "light": "fgDark"
+    },
+    "background": {
+      "dark": "bg",
+      "light": "fg"
+    },
+    "backgroundPanel": {
+      "dark": "bgDark",
+      "light": "fgDark"
+    },
+    "backgroundElement": {
+      "dark": "bgHighlight",
+      "light": "fgDark"
+    },
+    "border": {
+      "dark": "fgGutter",
+      "light": "terminalBlack"
+    },
+    "borderActive": {
+      "dark": "blue",
+      "light": "blue0"
+    },
+    "borderSubtle": {
+      "dark": "bgHighlight",
+      "light": "fgGutter"
+    },
+    "diffAdded": {
+      "dark": "green1",
+      "light": "green"
+    },
+    "diffRemoved": {
+      "dark": "red",
+      "light": "red1"
+    },
+    "diffContext": {
+      "dark": "comment",
+      "light": "comment"
+    },
+    "diffHunkHeader": {
+      "dark": "fgDark",
+      "light": "fgDark"
+    },
+    "diffHighlightAdded": {
+      "dark": "green",
+      "light": "green"
+    },
+    "diffHighlightRemoved": {
+      "dark": "#ff899d",
+      "light": "#ff899d"
+    },
+    "diffAddedBg": {
+      "dark": "diffAddBg",
+      "light": "#d0e8d8"
+    },
+    "diffRemovedBg": {
+      "dark": "diffDeleteBg",
+      "light": "#e8d0d0"
+    },
+    "diffContextBg": {
+      "dark": "bgDark",
+      "light": "fgDark"
+    },
+    "diffLineNumber": {
+      "dark": "comment",
+      "light": "fgDark"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "diffAddBg",
+      "light": "#d0e8d8"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "diffDeleteBg",
+      "light": "#e8d0d0"
+    },
+    "markdownText": {
+      "dark": "fg",
+      "light": "bg"
+    },
+    "markdownHeading": {
+      "dark": "blue",
+      "light": "blue0"
+    },
+    "markdownLink": {
+      "dark": "cyan",
+      "light": "blue1"
+    },
+    "markdownLinkText": {
+      "dark": "teal",
+      "light": "teal"
+    },
+    "markdownCode": {
+      "dark": "green",
+      "light": "green"
+    },
+    "markdownBlockQuote": {
+      "dark": "comment",
+      "light": "comment"
+    },
+    "markdownEmph": {
+      "dark": "magenta",
+      "light": "purple"
+    },
+    "markdownStrong": {
+      "dark": "orange",
+      "light": "orange"
+    },
+    "markdownHorizontalRule": {
+      "dark": "fgGutter",
+      "light": "terminalBlack"
+    },
+    "markdownListItem": {
+      "dark": "orange",
+      "light": "orange"
+    },
+    "markdownListEnumeration": {
+      "dark": "blue0",
+      "light": "blue0"
+    },
+    "markdownImage": {
+      "dark": "magenta",
+      "light": "purple"
+    },
+    "markdownImageText": {
+      "dark": "cyan",
+      "light": "cyan"
+    },
+    "markdownCodeBlock": {
+      "dark": "fg",
+      "light": "bg"
+    },
+    "syntaxComment": {
+      "dark": "comment",
+      "light": "comment"
+    },
+    "syntaxKeyword": {
+      "dark": "purple",
+      "light": "magenta"
+    },
+    "syntaxFunction": {
+      "dark": "blue",
+      "light": "blue0"
+    },
+    "syntaxVariable": {
+      "dark": "fg",
+      "light": "fg"
+    },
+    "syntaxString": {
+      "dark": "green",
+      "light": "green"
+    },
+    "syntaxNumber": {
+      "dark": "orange",
+      "light": "orange"
+    },
+    "syntaxType": {
+      "dark": "blue1",
+      "light": "cyan"
+    },
+    "syntaxOperator": {
+      "dark": "blue5",
+      "light": "cyan"
+    },
+    "syntaxPunctuation": {
+      "dark": "fgDark",
+      "light": "comment"
+    }
+  }
+}

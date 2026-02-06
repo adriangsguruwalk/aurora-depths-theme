@@ -1,0 +1,463 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║  ▀█▀ █▀█ █▄▀ █▄█ █▀█   █▄ █ █ █▀▀ █ █ ▀█▀                                   ║
+# ║   █  █▄█ █ █  █  █▄█   █ ▀█ █ █▄█ █▀█  █                                    ║
+# ║  ─────────────────────────────────────────────────────────────────────────   ║
+# ║  NIGHT VARIANT // Based on folke/tokyonight.nvim                            ║
+# ║  "A clean, dark theme with vibrant colors"                                  ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# DESIGN PHILOSOPHY:
+# - Clean, modern aesthetic with blue as the hero color
+# - Vibrant accent colors that pop against the dark background
+# - Inspired by the lights of Tokyo at night
+#
+# REQUIRES: Nerd Font v3.0+ (FiraCode Nerd Font, JetBrains Mono Nerd Font, etc.)
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PALETTE - Tokyo Night
+# ══════════════════════════════════════════════════════════════════════════════
+
+palette = "tokyonight"
+
+[palettes.tokyonight]
+# ── Background Layers ──
+bg         = "#1a1b26"    # Main background
+bg_dark    = "#16161e"    # Darker surfaces
+bg_highlight = "#292e42"  # Selections
+fg_gutter  = "#3b4261"    # Borders
+terminal_black = "#414868" # Bright black
+
+# ── Foreground Hierarchy ──
+fg         = "#c0caf5"    # Primary text
+fg_dark    = "#a9b1d6"    # Secondary text
+comment    = "#565f89"    # Muted text
+dark5      = "#737aa2"    # Disabled text
+dark3      = "#545c7e"    # Ghost text
+
+# ── Primary Blue (The Hero) ──
+blue       = "#7aa2f7"    # Primary accent
+blue0      = "#3d59a1"    # Dim blue
+blue1      = "#2ac3de"    # Bright blue/cyan
+
+# ── Cyan ──
+cyan       = "#7dcfff"    # Keywords, bright accent
+blue5      = "#89ddff"    # Punctuation
+
+# ── Magenta/Purple ──
+magenta    = "#bb9af7"    # Types, classes
+purple     = "#9d7cd8"    # Keywords italic
+
+# ── Green ──
+green      = "#9ece6a"    # Strings
+green1     = "#73daca"    # Properties
+teal       = "#1abc9c"    # Info
+
+# ── Warm Colors ──
+orange     = "#ff9e64"    # Numbers, constants
+yellow     = "#e0af68"    # Warnings
+red        = "#f7768e"    # Errors
+red1       = "#db4b4b"    # Dark red
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PROMPT ARCHITECTURE
+# ══════════════════════════════════════════════════════════════════════════════
+
+format = """
+[┌─](dark3)\
+$os\
+$container\
+$username\
+$hostname\
+[─](dark3)\
+$directory\
+[─](dark3)\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$git_metrics\
+$package\
+[─](dark3)\
+$fill\
+$c\
+$rust\
+$golang\
+$python\
+$nodejs\
+$ruby\
+$java\
+$kotlin\
+$swift\
+$elixir\
+$lua\
+$php\
+$docker_context\
+$kubernetes\
+$terraform\
+$aws\
+$gcloud\
+$nix_shell\
+$conda\
+$memory_usage\
+$cmd_duration\
+[─](dark3)\
+$time\
+[─┐](dark3)\
+$line_break\
+[└─](dark3)\
+$shlvl\
+$jobs\
+$status\
+$sudo\
+$battery\
+[─](dark3)\
+$character"""
+
+right_format = ""
+
+# Continuation prompt
+continuation_prompt = "[│ ](dark3)[∵](blue) "
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CORE INTERFACE
+# ══════════════════════════════════════════════════════════════════════════════
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[◀](bold cyan)"
+vimcmd_replace_one_symbol = "[◁](bold orange)"
+vimcmd_replace_symbol = "[◁](bold orange)"
+vimcmd_visual_symbol = "[◀](bold blue)"
+
+[username]
+format = "[\\[](dark3)[$user](bold blue)[\\]](dark3)"
+style_user = "blue"
+style_root = "bold red"
+show_always = false
+
+[hostname]
+format = "[@$ssh_symbol$hostname](comment)"
+style = "comment"
+ssh_only = true
+ssh_symbol = "󰣀"
+trim_at = "."
+
+[directory]
+format = "[\\[](dark3)[λ](cyan)[:](dark3)[$read_only]($read_only_style)[$path](bold blue)[\\]](dark3)"
+style = "bold blue"
+read_only = "󰌾"
+read_only_style = "red"
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "…/"
+home_symbol = "~"
+use_os_path_sep = true
+
+[directory.substitutions]
+"Documents" = "DOC"
+"Downloads" = "DWN"
+"Projects" = "PRJ"
+"Developer" = "DEV"
+".config" = "CFG"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# VERSION CONTROL
+# ══════════════════════════════════════════════════════════════════════════════
+
+[git_branch]
+format = "[\\[](dark3)[±](magenta)[:](dark3)[$branch(:$remote_branch)](magenta)[\\]](dark3)"
+symbol = ""
+style = "magenta"
+truncation_length = 20
+truncation_symbol = "…"
+only_attached = false
+
+[git_commit]
+format = '[⟨$hash$tag⟩](comment)'
+style = "comment"
+commit_hash_length = 7
+tag_symbol = "󰓹"
+only_detached = true
+tag_disabled = false
+
+[git_state]
+format = '[\[](dark3)[$state($progress_current/$progress_total)](bold yellow)[\]](dark3)'
+style = "bold yellow"
+rebase = "󰳖REB"
+merge = "󰘭MRG"
+revert = "󰕌REV"
+cherry_pick = "CHR"
+bisect = "BIS"
+am = "AM"
+am_or_rebase = "AM/R"
+
+[git_metrics]
+format = '([+$added]($added_style))([-$deleted]($deleted_style))'
+added_style = "green"
+deleted_style = "red"
+disabled = false
+only_nonzero_diffs = true
+
+[git_status]
+format = '([$all_status$ahead_behind]($style))'
+style = "purple"
+conflicted = "󰞇"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕${ahead_count}↕${behind_count}"
+up_to_date = ""
+untracked = "?"
+stashed = "󰏗"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TECH STACK
+# ══════════════════════════════════════════════════════════════════════════════
+
+[package]
+format = "[\\[](dark3)[◆](purple)[:](dark3)[$version](purple)[\\]](dark3)"
+symbol = ""
+style = "purple"
+display_private = false
+disabled = false
+
+[nodejs]
+format = "[\\[](dark3)[󰎙](green)[:](dark3)[$version](green)[\\]](dark3)"
+symbol = ""
+style = "green"
+detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts", "tsx", "jsx"]
+detect_files = ["package.json", ".node-version", ".nvmrc"]
+detect_folders = ["node_modules"]
+
+[python]
+format = '[[\[](dark3)[󰌠](yellow)[:](dark3)[${version}](yellow)[\]](dark3)]($style)'
+symbol = ""
+style = "yellow"
+pyenv_version_name = false
+detect_extensions = ["py"]
+detect_files = ["requirements.txt", "pyproject.toml", "setup.py", "Pipfile"]
+
+[rust]
+format = "[\\[](dark3)[󱘗](orange)[:](dark3)[$version](orange)[\\]](dark3)"
+symbol = ""
+style = "orange"
+detect_extensions = ["rs"]
+detect_files = ["Cargo.toml"]
+
+[golang]
+format = "[\\[](dark3)[󰟓](cyan)[:](dark3)[$version](cyan)[\\]](dark3)"
+symbol = ""
+style = "cyan"
+detect_extensions = ["go"]
+detect_files = ["go.mod", "go.sum"]
+
+[ruby]
+format = "[\\[](dark3)[](red)[:](dark3)[$version](red)[\\]](dark3)"
+symbol = ""
+style = "red"
+detect_extensions = ["rb"]
+detect_files = ["Gemfile", ".ruby-version"]
+
+[java]
+format = "[\\[](dark3)[](orange)[:](dark3)[$version](orange)[\\]](dark3)"
+symbol = ""
+style = "orange"
+detect_extensions = ["java", "class", "jar"]
+detect_files = ["pom.xml", "build.gradle.kts"]
+
+[kotlin]
+format = "[\\[](dark3)[󱈙](purple)[:](dark3)[$version](purple)[\\]](dark3)"
+symbol = ""
+style = "purple"
+detect_extensions = ["kt", "kts"]
+
+[swift]
+format = "[\\[](dark3)[󰛥](orange)[:](dark3)[$version](orange)[\\]](dark3)"
+symbol = ""
+style = "orange"
+detect_extensions = ["swift"]
+
+[elixir]
+format = '[[\[](dark3)[](magenta)[:](dark3)[$version](magenta)[\]](dark3)]($style)'
+symbol = ""
+style = "magenta"
+detect_extensions = ["ex", "exs"]
+
+[lua]
+format = "[\\[](dark3)[󰢱](blue)[:](dark3)[$version](blue)[\\]](dark3)"
+symbol = ""
+style = "blue"
+detect_extensions = ["lua"]
+
+[php]
+format = "[\\[](dark3)[󰌟](purple)[:](dark3)[$version](purple)[\\]](dark3)"
+symbol = ""
+style = "purple"
+detect_extensions = ["php"]
+
+[c]
+format = "[\\[](dark3)[](comment)[:](dark3)[$version](comment)[\\]](dark3)"
+symbol = ""
+style = "comment"
+detect_extensions = ["c", "h"]
+
+# ══════════════════════════════════════════════════════════════════════════════
+# INFRASTRUCTURE
+# ══════════════════════════════════════════════════════════════════════════════
+
+[docker_context]
+format = "[\\[](dark3)[󰡨](cyan)[:](dark3)[$context](cyan)[\\]](dark3)"
+symbol = ""
+style = "cyan"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+
+[kubernetes]
+format = '[[\[](dark3)[󱃾](blue)[:](dark3)[$context](blue)[\]](dark3)]($style)'
+symbol = ""
+style = "blue"
+disabled = false
+detect_env_vars = ["KUBECONFIG"]
+
+[terraform]
+format = "[\\[](dark3)[󱁢](purple)[:](dark3)[$workspace](purple)[\\]](dark3)"
+symbol = ""
+style = "purple"
+detect_extensions = ["tf", "tfplan", "tfstate"]
+
+[aws]
+format = '[[\[](dark3)[󰸏](yellow)[:](dark3)[$profile](yellow)[\]](dark3)]($style)'
+symbol = ""
+style = "yellow"
+force_display = false
+
+[gcloud]
+format = "[\\[](dark3)[󱇶](blue)[:](dark3)[$project](blue)[\\]](dark3)"
+symbol = ""
+style = "blue"
+
+[nix_shell]
+format = '[[\[](dark3)[󱄅](cyan)[:](dark3)[$state](cyan)[\]](dark3)]($style)'
+symbol = ""
+style = "cyan"
+impure_msg = "impure"
+pure_msg = "pure"
+
+[conda]
+format = "[\\[](dark3)[󱔎](green)[:](dark3)[$environment](green)[\\]](dark3)"
+symbol = ""
+style = "green"
+truncation_length = 12
+ignore_base = true
+
+# ══════════════════════════════════════════════════════════════════════════════
+# SYSTEM TELEMETRY
+# ══════════════════════════════════════════════════════════════════════════════
+
+[time]
+format = "[\\[](dark3)[$time](comment)[\\]](dark3)"
+style = "comment"
+disabled = false
+use_12hr = false
+time_format = "%H:%M:%S"
+utc_time_offset = "local"
+
+[cmd_duration]
+format = "[\\[](dark3)[⚡](yellow)[:](dark3)[$duration](yellow)[\\]](dark3)"
+style = "yellow"
+min_time = 2_000
+show_milliseconds = false
+
+[fill]
+symbol = "─"
+style = "dark3"
+
+[jobs]
+format = "[\\[](dark3)[󰜎](purple)[:](dark3)[$number](purple)[\\]](dark3)"
+symbol = ""
+style = "purple"
+number_threshold = 1
+symbol_threshold = 1
+
+[battery]
+format = "[\\[](dark3)[$symbol$percentage](comment)[\\]](dark3)"
+full_symbol = "󰁹"
+charging_symbol = "󰂄"
+discharging_symbol = "󰁿"
+unknown_symbol = "󰂑"
+empty_symbol = "󰂎"
+disabled = false
+
+[[battery.display]]
+threshold = 15
+style = "bold red"
+discharging_symbol = "󱃍"
+
+[[battery.display]]
+threshold = 30
+style = "yellow"
+discharging_symbol = "󰁻"
+
+[[battery.display]]
+threshold = 100
+style = "comment"
+
+[memory_usage]
+format = "[\\[](dark3)[󰍛](comment)[:](dark3)[$ram](comment)[\\]](dark3)"
+symbol = ""
+style = "comment"
+threshold = 75
+disabled = true
+
+[status]
+format = '[[\[](dark3)[✘](red)[:](dark3)[$status](red)[\]](dark3)]($style)'
+symbol = ""
+success_symbol = ""
+not_executable_symbol = "󰂭"
+not_found_symbol = "󰍉"
+sigint_symbol = "󰂭"
+signal_symbol = "󱐋"
+style = "red"
+map_symbol = true
+recognize_signal_code = true
+disabled = false
+
+[shlvl]
+format = "[\\[](dark3)[󰜮](yellow)[:](dark3)[$shlvl](yellow)[\\]](dark3)"
+symbol = ""
+style = "yellow"
+threshold = 2
+repeat = false
+disabled = false
+
+[sudo]
+format = "[\\[](dark3)[󰞀](red)[\\]](dark3)"
+symbol = ""
+style = "bold red"
+allow_windows = false
+disabled = false
+
+[container]
+format = '[[\[](dark3)[󰏖](cyan)[:](dark3)[$name](cyan)[\]](dark3)]($style)'
+symbol = ""
+style = "cyan"
+
+[os]
+format = "[\\[](dark3)[$symbol](comment)[\\]](dark3)"
+style = "comment"
+disabled = false
+
+[os.symbols]
+Macos = "󰀵"
+Linux = "󰌽"
+Windows = "󰍲"
+Ubuntu = "󰕈"
+Arch = "󰣇"
+Fedora = "󰣛"
+Debian = "󰣚"

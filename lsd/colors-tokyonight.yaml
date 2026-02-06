@@ -1,0 +1,227 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Tokyo Night - LSD Colors
+# Based on folke/tokyonight.nvim - Night variant
+# A clean, dark theme with vibrant colors
+# ──────────────────────────────────────────────────────────────────────────────
+#
+# Installation:
+#   mkdir -p ~/.config/lsd
+#   cp colors-tokyonight.yaml ~/.config/lsd/colors.yaml
+#
+# Reference:
+#   https://github.com/lsd-rs/lsd#color-theme
+# ──────────────────────────────────────────────────────────────────────────────
+
+# User and Group
+user: "#7aa2f7"           # Blue - current user
+group: "#bb9af7"          # Magenta - group
+
+# Permissions
+permission:
+  read: "#9ece6a"         # Green - read permission
+  write: "#e0af68"        # Yellow - write permission
+  exec: "#f7768e"         # Red - execute permission
+  exec-sticky: "#73daca"  # Green1 - sticky exec
+  no-access: "#565f89"    # Comment - no permission
+  octal: "#7dcfff"        # Cyan - octal display
+  acl: "#bb9af7"          # Magenta - ACL indicator
+  context: "#737aa2"      # Dark5 - SELinux context
+
+# File sizes
+size:
+  none: "#565f89"         # Comment - empty/none
+  small: "#9ece6a"        # Green - small files
+  medium: "#e0af68"       # Yellow - medium files
+  large: "#ff9e64"        # Orange - large files
+
+# Date/Time
+date:
+  hour-old: "#73daca"     # Green1 - very recent
+  day-old: "#7aa2f7"      # Blue - recent
+  older: "#737aa2"        # Dark5 - older files
+
+# Git status
+git-status:
+  default: "#565f89"      # Comment
+  unmodified: "#565f89"   # Comment
+  ignored: "#414868"      # Terminal black
+  new-in-index: "#73daca" # Green1 - staged new
+  new-in-workdir: "#9ece6a" # Green - untracked
+  typechange: "#2ac3de"   # Blue1 - type changed
+  deleted: "#f7768e"      # Red - deleted
+  renamed: "#bb9af7"      # Magenta - renamed
+  modified: "#e0af68"     # Yellow - modified
+  conflicted: "#db4b4b"   # Red1 - conflicts
+
+# Symlinks
+links:
+  valid: "#7dcfff"        # Cyan - valid symlink
+  invalid: "#f7768e"      # Red - broken symlink
+
+# INode (unique file identifier)
+inode:
+  valid: "#3d59a1"        # Blue0
+  invalid: "#f7768e"      # Red
+
+# Tree structure
+tree-edge: "#3b4261"      # fg_gutter - tree lines
+
+# File types
+filetype:
+  file:
+    default: "#c0caf5"    # fg - regular files
+    empty: "#565f89"      # Comment - empty files
+  dir:
+    default: "#7aa2f7"    # Blue - directories
+    empty: "#565f89"      # Comment - empty directories
+  pipe: "#e0af68"         # Yellow - named pipes
+  socket: "#2ac3de"       # Blue1 - sockets
+  block-device: "#ff9e64" # Orange - block devices
+  char-device: "#ff9e64"  # Orange - character devices
+  special: "#bb9af7"      # Magenta - special files
+
+# Extensions by category
+extension:
+  # Images
+  png: "#f7768e"          # Red
+  jpg: "#f7768e"
+  jpeg: "#f7768e"
+  gif: "#f7768e"
+  webp: "#f7768e"
+  svg: "#f7768e"
+  ico: "#f7768e"
+  bmp: "#f7768e"
+  tiff: "#f7768e"
+
+  # Video
+  mp4: "#bb9af7"          # Magenta
+  mkv: "#bb9af7"
+  avi: "#bb9af7"
+  mov: "#bb9af7"
+  webm: "#bb9af7"
+  flv: "#bb9af7"
+
+  # Audio
+  mp3: "#9d7cd8"          # Purple
+  flac: "#9d7cd8"
+  wav: "#9d7cd8"
+  ogg: "#9d7cd8"
+  m4a: "#9d7cd8"
+  aac: "#9d7cd8"
+
+  # Documents
+  pdf: "#f7768e"          # Red
+  doc: "#7aa2f7"          # Blue
+  docx: "#7aa2f7"
+  xls: "#9ece6a"          # Green
+  xlsx: "#9ece6a"
+  ppt: "#ff9e64"          # Orange
+  pptx: "#ff9e64"
+  odt: "#7aa2f7"
+  ods: "#9ece6a"
+  odp: "#ff9e64"
+
+  # Archives
+  zip: "#ff9e64"          # Orange
+  tar: "#ff9e64"
+  gz: "#ff9e64"
+  bz2: "#ff9e64"
+  xz: "#ff9e64"
+  zst: "#ff9e64"
+  7z: "#ff9e64"
+  rar: "#ff9e64"
+  deb: "#ff9e64"
+  rpm: "#ff9e64"
+  dmg: "#ff9e64"
+
+  # Source code - Programming languages
+  rs: "#ff9e64"           # Orange - Rust
+  go: "#7dcfff"           # Cyan - Go
+  py: "#e0af68"           # Yellow - Python
+  rb: "#f7768e"           # Red - Ruby
+  js: "#e0af68"           # Yellow - JavaScript
+  ts: "#7aa2f7"           # Blue - TypeScript
+  jsx: "#7dcfff"          # Cyan - JSX
+  tsx: "#7dcfff"          # Cyan - TSX
+  java: "#ff9e64"         # Orange - Java
+  kt: "#9d7cd8"           # Purple - Kotlin
+  swift: "#ff9e64"        # Orange - Swift
+  c: "#737aa2"            # Dark5 - C
+  cpp: "#737aa2"          # Dark5 - C++
+  h: "#737aa2"            # Dark5 - Headers
+  hpp: "#737aa2"
+  lua: "#7aa2f7"          # Blue - Lua
+  ex: "#bb9af7"           # Magenta - Elixir
+  exs: "#bb9af7"
+  erl: "#bb9af7"          # Magenta - Erlang
+  hs: "#bb9af7"           # Magenta - Haskell
+  php: "#9d7cd8"          # Purple - PHP
+  scala: "#f7768e"        # Red - Scala
+  zig: "#ff9e64"          # Orange - Zig
+  nim: "#e0af68"          # Yellow - Nim
+  v: "#7aa2f7"            # Blue - V
+  dart: "#7dcfff"         # Cyan - Dart
+  cs: "#9d7cd8"           # Purple - C#
+  fs: "#7aa2f7"           # Blue - F#
+  ml: "#ff9e64"           # Orange - OCaml
+  clj: "#9ece6a"          # Green - Clojure
+  cljs: "#9ece6a"
+
+  # Web
+  html: "#f7768e"         # Red
+  htm: "#f7768e"
+  css: "#7aa2f7"          # Blue
+  scss: "#bb9af7"         # Magenta
+  sass: "#bb9af7"
+  less: "#7aa2f7"
+  vue: "#9ece6a"          # Green
+  svelte: "#ff9e64"       # Orange
+
+  # Config and data
+  json: "#e0af68"         # Yellow
+  yaml: "#e0af68"
+  yml: "#e0af68"
+  toml: "#e0af68"
+  xml: "#e0af68"
+  ini: "#e0af68"
+  conf: "#e0af68"
+  config: "#e0af68"
+
+  # Shell and scripts
+  sh: "#9ece6a"           # Green
+  bash: "#9ece6a"
+  zsh: "#9ece6a"
+  fish: "#9ece6a"
+
+  # Text and documentation
+  md: "#7aa2f7"           # Blue - Markdown
+  markdown: "#7aa2f7"
+  txt: "#a9b1d6"          # fg_dark - Plain text
+  rst: "#7aa2f7"          # Blue - reStructuredText
+  org: "#9ece6a"          # Green - Org mode
+  tex: "#9ece6a"          # Green - LaTeX
+  log: "#565f89"          # Comment - Log files
+
+  # Database
+  sql: "#7dcfff"          # Cyan
+  sqlite: "#7dcfff"
+  db: "#7dcfff"
+
+  # Build and lock files
+  lock: "#565f89"         # Comment
+  Makefile: "#9ece6a"     # Green
+  Dockerfile: "#7dcfff"   # Cyan
+  Containerfile: "#7dcfff"
+
+  # Git
+  gitignore: "#565f89"    # Comment
+  gitattributes: "#565f89"
+  gitmodules: "#565f89"
+
+  # Nix
+  nix: "#7aa2f7"          # Blue
+
+  # Misc
+  env: "#e0af68"          # Yellow - Environment files
+  license: "#737aa2"      # Dark5
+  readme: "#7aa2f7"       # Blue
